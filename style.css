@@ -1113,7 +1113,6 @@ a.footer-contact-link:hover .footer-symbol {
 
   transform: translateY(-2px);
 }
-
 /* =========================================================
    TABLET
 ========================================================= */
@@ -1141,6 +1140,7 @@ a.footer-contact-link:hover .footer-symbol {
   }
 }
 
+
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -1149,22 +1149,24 @@ a.footer-contact-link:hover .footer-symbol {
 
   header {
     position: absolute;
+    top: 0;
+    left: 0;
 
+    width: 100%;
     height: 75px;
 
     padding: 0 5%;
 
-    gap: 10px;
+    display: flex;
+    align-items: center;
 
     direction: ltr !important;
   }
 
-  /* -------------------------------------------------------
+
+  /* =======================================================
      BRAND
-     IMPORTANT:
-     position:absolute = moves with page
-     NOT fixed = does NOT stay on screen
-  ------------------------------------------------------- */
+  ======================================================= */
 
   .brand {
     position: absolute;
@@ -1175,10 +1177,13 @@ a.footer-contact-link:hover .footer-symbol {
     z-index: 2100;
 
     display: flex;
-
     align-items: center;
 
     gap: 8px;
+
+    flex-shrink: 0;
+
+    direction: ltr !important;
 
     filter:
       drop-shadow(0 4px 10px rgba(0, 0, 0, 1))
@@ -1190,27 +1195,35 @@ a.footer-contact-link:hover .footer-symbol {
     height: 32px;
 
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   .brand .logo {
     display: flex;
-
     flex-direction: column;
 
     font-size: 18px;
-
     line-height: 1;
 
     white-space: nowrap;
+
+    direction: ltr !important;
   }
 
   .brand .logo small {
-    font-size: 9px;
+    margin-top: 5px;
+
+    font-size: 8px;
+
+    text-align: left;
+
+    direction: ltr !important;
   }
 
-  /* -------------------------------------------------------
-     MOBILE NAVIGATION
-  ------------------------------------------------------- */
+
+  /* =======================================================
+     DESKTOP NAVIGATION → MOBILE MENU
+  ======================================================= */
 
   nav {
     position: absolute;
@@ -1228,10 +1241,11 @@ a.footer-contact-link:hover .footer-symbol {
     gap: 0;
 
     margin: 0;
-
     padding: 15px;
 
     background: rgba(11, 21, 11, 0.97);
+
+    border: 1px solid rgba(213, 155, 66, 0.20);
 
     direction: ltr !important;
   }
@@ -1241,33 +1255,52 @@ a.footer-contact-link:hover .footer-symbol {
   }
 
   nav a {
-    padding: 15px 10px;
-  }
-
-  /* -------------------------------------------------------
-     HAMBURGER
-  ------------------------------------------------------- */
-
-  .menu {
-    position: relative;
-
-    z-index: 2100;
-
     display: block;
 
-    order: 10;
-
-    margin-left: auto;
-
-    padding: 5px;
-
-    border: 0;
-
-    background: none;
+    padding: 15px 10px;
 
     color: #fff;
 
-    font-size: 25px;
+    text-align: left;
+
+    direction: ltr !important;
+  }
+
+
+  /* =======================================================
+     HAMBURGER
+     
+     IMPORTANT:
+     It is positioned on the RIGHT.
+  ======================================================= */
+
+  .menu {
+    position: absolute;
+
+    top: 17px;
+    right: 5%;
+
+    z-index: 2200;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 27px;
+    line-height: 1;
 
     cursor: pointer;
 
@@ -1276,28 +1309,62 @@ a.footer-contact-link:hover .footer-symbol {
     filter: drop-shadow(0 3px 6px #000);
   }
 
-  /* -------------------------------------------------------
-     LANGUAGE
-  ------------------------------------------------------- */
 
-  .language-picker {
-    position: relative;
+  /* =======================================================
+     LANGUAGE BUTTONS
+     
+     IMPORTANT:
+     They are NOT centered.
+     They stay on the RIGHT side, next to hamburger.
+  ======================================================= */
 
-    z-index: 2100;
+  .langs {
+    position: absolute;
 
-    order: 5;
+    top: 19px;
+    right: calc(5% + 48px);
 
-    margin-left: auto;
+    z-index: 2200;
+
+    display: flex;
+
+    margin: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.33);
+
+    direction: ltr !important;
 
     flex-shrink: 0;
 
-    filter: drop-shadow(0 3px 6px #000);
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8));
   }
 
-  .language-toggle {
-    width: 36px;
-    height: 36px;
+  .langs button {
+    min-width: 30px;
+
+    padding: 7px 6px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    direction: ltr !important;
   }
+
+  .langs .active {
+    background: var(--gold);
+  }
+
 
   /* Hide desktop buy button */
 
@@ -1305,12 +1372,15 @@ a.footer-contact-link:hover .footer-symbol {
     display: none;
   }
 
-  /* -------------------------------------------------------
-     CONTENT
-  ------------------------------------------------------- */
+
+  /* =======================================================
+     MAIN CONTENT
+  ======================================================= */
 
   .split {
     grid-template-columns: 1fr;
+
+    direction: ltr !important;
   }
 
   .photo,
@@ -1336,6 +1406,11 @@ a.footer-contact-link:hover .footer-symbol {
     padding: 80px 7%;
   }
 
+
+  /* =======================================================
+     FOOTER
+  ======================================================= */
+
   .footer-content {
     grid-template-columns: 1fr;
 
@@ -1346,6 +1421,7 @@ a.footer-contact-link:hover .footer-symbol {
     margin-top: 42px;
   }
 }
+
 
 /* =========================================================
    SMALL MOBILE
@@ -1370,8 +1446,38 @@ a.footer-contact-link:hover .footer-symbol {
   }
 
   .brand .logo small {
+    font-size: 7px;
+  }
+
+
+  /* Right-side controls */
+
+  .menu {
+    top: 16px;
+    right: 4%;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 25px;
+  }
+
+  .langs {
+    top: 18px;
+
+    right: calc(4% + 45px);
+  }
+
+  .langs button {
+    min-width: 28px;
+
+    padding: 7px 5px;
+
     font-size: 8px;
   }
+
+
+  /* Hero */
 
   .hero {
     min-height: 650px;
@@ -1384,6 +1490,9 @@ a.footer-contact-link:hover .footer-symbol {
   .hero-copy {
     width: 88%;
   }
+
+
+  /* Sections */
 
   .process,
   .shop {
@@ -1405,6 +1514,9 @@ a.footer-contact-link:hover .footer-symbol {
   .contact form {
     padding: 25px;
   }
+
+
+  /* Footer */
 
   .site-footer {
     padding: 52px 22px 24px;
@@ -1457,6 +1569,7 @@ a.footer-contact-link:hover .footer-symbol {
   }
 }
 
+
 /* =========================================================
    VERY SMALL PHONES
 ========================================================= */
@@ -1486,7 +1599,24 @@ a.footer-contact-link:hover .footer-symbol {
     letter-spacing: 0.35em;
   }
 
+
   .menu {
+    right: 3%;
+
     font-size: 23px;
+  }
+
+  .langs {
+    right: calc(3% + 42px);
+
+    top: 19px;
+  }
+
+  .langs button {
+    min-width: 26px;
+
+    padding: 6px 4px;
+
+    font-size: 7px;
   }
 }
