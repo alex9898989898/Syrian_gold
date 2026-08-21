@@ -21,7 +21,11 @@
         href="https://fonts.googleapis.com"
     >
 
-    https://fonts.gstatic.com
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap"
@@ -58,15 +62,25 @@
             id="main-navigation"
             aria-label="Huvudmeny"
         >
-            #origin</a>
+            #origin
+                Ursprung
+            </a>
 
-            #craft</a>
+            #craft
+                Hantverket
+            </a>
 
-            #oil</a>
+            #oil
+                Vår olja
+            </a>
 
-            #shop</a>
+            #shop
+                Kollektion
+            </a>
 
-            #contact</a>
+            #contact
+                Kontakta oss
+            </a>
         </nav>
 
         <!-- Languages -->
@@ -77,6 +91,7 @@
             <button
                 type="button"
                 data-lang="sv"
+                aria-label="Svenska"
             >
                 SV
             </button>
@@ -84,6 +99,7 @@
             <button
                 type="button"
                 data-lang="en"
+                aria-label="English"
             >
                 EN
             </button>
@@ -91,12 +107,15 @@
             <button
                 type="button"
                 data-lang="ar"
+                aria-label="العربية"
             >
                 العربية
             </button>
         </div>
 
-        #shop</a>
+        #shop
+            Köp nu
+        </a>
     </header>
 
 
@@ -113,13 +132,23 @@
             ></div>
 
             <div class="hero-copy reveal">
-                <p data-t="kicker"></p>
+                <p data-t="kicker">
+                    Kallpressad extra virgin olivolja
+                </p>
 
-                <h1 data-t="title"></h1>
+                <h1 data-t="title">
+                    Ett levande<br>arv.
+                </h1>
 
-                <span data-t="heroText"></span>
+                <span data-t="heroText">
+                    Uråldriga syriska olivlundar. Buteljerat guld
+                    för den skandinaviska smakpaletten. En tyst
+                    lyx, skapad av århundraden.
+                </span>
 
-                #oil</a>
+                #oil
+                    Upptäck oljan
+                </a>
             </div>
         </section>
 
@@ -136,14 +165,24 @@
             <div class="copy reveal-right">
                 <i>
                     01 /
-                    <span data-t="origin"></span>
+                    <span data-t="origin">
+                        Ursprung
+                    </span>
                 </i>
 
-                <h2 data-t="originTitle"></h2>
+                <h2 data-t="originTitle">
+                    I varje oliv finns en berättelse.
+                </h2>
 
-                <p data-t="originText"></p>
+                <p data-t="originText">
+                    Syrian Gold föds ur respekt för Syriens
+                    olivtradition. Varje skörd bär spår av jorden,
+                    solen och omsorgen från generationer.
+                </p>
 
-                <blockquote data-t="quote"></blockquote>
+                <blockquote data-t="quote">
+                    “Äkta lyx handlar om ursprung, tid och omsorg.”
+                </blockquote>
             </div>
         </section>
 
@@ -156,12 +195,18 @@
             <div class="heading reveal">
                 <i>
                     02 /
-                    <span data-t="craft"></span>
+                    <span data-t="craft">
+                        Hantverket
+                    </span>
                 </i>
 
-                <h2 data-t="craftTitle"></h2>
+                <h2 data-t="craftTitle">
+                    Från jord till flaska
+                </h2>
 
-                <p data-t="craftLead"></p>
+                <p data-t="craftLead">
+                    En oförändrad tradition som möter modern precision.
+                </p>
             </div>
 
             <div class="cards">
@@ -169,25 +214,41 @@
                 <article class="reveal s1">
                     <b>01</b>
 
-                    <h3 data-t="step1"></h3>
+                    <h3 data-t="step1">
+                        Handplockat
+                    </h3>
 
-                    <p data-t="step1t"></p>
+                    <p data-t="step1t">
+                        Oliverna skördas varsamt för hand för att
+                        skydda frukten och bevara dess naturliga
+                        karaktär.
+                    </p>
                 </article>
 
                 <article class="reveal s2">
                     <b>02</b>
 
-                    <h3 data-t="step2"></h3>
+                    <h3 data-t="step2">
+                        Mekaniskt pressat
+                    </h3>
 
-                    <p data-t="step2t"></p>
+                    <p data-t="step2t">
+                        Kontrollerad temperatur och mekaniska metoder
+                        skapar en ren, tydlig och balanserad smak.
+                    </p>
                 </article>
 
                 <article class="reveal s3">
                     <b>03</b>
 
-                    <h3 data-t="step3"></h3>
+                    <h3 data-t="step3">
+                        Varsamt buteljerat
+                    </h3>
 
-                    <p data-t="step3t"></p>
+                    <p data-t="step3t">
+                        Oljan får vila naturligt och buteljeras med
+                        omsorg för att skydda arom, färg och kvalitet.
+                    </p>
                 </article>
 
             </div>
@@ -206,29 +267,51 @@
             <div class="copy reveal-right">
                 <i>
                     03 /
-                    <span data-t="oil"></span>
+                    <span data-t="oil">
+                        Vår olja
+                    </span>
                 </i>
 
                 <h2 data-t="oilTitle">
                     Premium Extra Virgin
                 </h2>
 
-                <p data-t="oilText"></p>
+                <p data-t="oilText">
+                    En balanserad signaturolja med grön friskhet,
+                    mjuk fruktighet och ett elegant pepprigt avslut.
+                </p>
 
                 <dl>
                     <div>
-                        <dt data-t="taste"></dt>
-                        <dd data-t="tasteV"></dd>
+                        <dt data-t="taste">
+                            Smak
+                        </dt>
+
+                        <dd data-t="tasteV">
+                            Gräsig, fruktig och elegant pepprig.
+                        </dd>
                     </div>
 
                     <div>
-                        <dt data-t="source"></dt>
-                        <dd data-t="sourceV"></dd>
+                        <dt data-t="source">
+                            Ursprung
+                        </dt>
+
+                        <dd data-t="sourceV">
+                            Syrisk olivtradition, skapad för den
+                            skandinaviska marknaden.
+                        </dd>
                     </div>
 
                     <div>
-                        <dt data-t="serve"></dt>
-                        <dd data-t="serveV"></dd>
+                        <dt data-t="serve">
+                            Passar till
+                        </dt>
+
+                        <dd data-t="serveV">
+                            Bröd, sallader, grillade rätter,
+                            marinader och servering.
+                        </dd>
                     </div>
                 </dl>
             </div>
@@ -243,12 +326,19 @@
             <div class="heading reveal">
                 <i>
                     04 /
-                    <span data-t="collection"></span>
+                    <span data-t="collection">
+                        Kollektion
+                    </span>
                 </i>
 
-                <h2 data-t="shopTitle"></h2>
+                <h2 data-t="shopTitle">
+                    Fyra storlekar. Samma guld.
+                </h2>
 
-                <p data-t="shopLead"></p>
+                <p data-t="shopLead">
+                    Välj formatet som passar ditt bord,
+                    ditt kök eller din familj.
+                </p>
             </div>
 
             <div class="products">
@@ -262,12 +352,16 @@
 
                     <h3>750 ml</h3>
 
-                    #contact</a>
+                    #contact
+                        Fråga om pris
+                    </a>
                 </article>
 
                 <!-- 1 liter -->
                 <article class="reveal s2 featured">
-                    <em data-t="popular"></em>
+                    <em data-t="popular">
+                        Mest populär
+                    </em>
 
                     <div class="pack tall">
                         1
@@ -276,7 +370,9 @@
 
                     <h3>1 L</h3>
 
-                    #contact</a>
+                    #contact
+                        Fråga om pris
+                    </a>
                 </article>
 
                 <!-- 2 liter -->
@@ -288,7 +384,9 @@
 
                     <h3>2 L</h3>
 
-                    #contact</a>
+                    #contact
+                        Fråga om pris
+                    </a>
                 </article>
 
                 <!-- 3 liter -->
@@ -300,7 +398,9 @@
 
                     <h3>3 L</h3>
 
-                    #contact</a>
+                    #contact
+                        Fråga om pris
+                    </a>
                 </article>
 
             </div>
@@ -313,11 +413,19 @@
             id="contact"
         >
             <div class="reveal-left">
-                <i data-t="contact"></i>
+                <i data-t="contact">
+                    Beställning och kontakt
+                </i>
 
-                <h2 data-t="contactTitle"></h2>
+                <h2 data-t="contactTitle">
+                    Bli en del av historien
+                </h2>
 
-                <p data-t="contactText"></p>
+                <p data-t="contactText">
+                    Skicka en förfrågan om priser,
+                    produktlansering, återförsäljning
+                    eller grossistmöjligheter.
+                </p>
             </div>
 
             /success.html
@@ -344,7 +452,9 @@
 
                 <!-- Name -->
                 <label>
-                    <span data-t="name"></span>
+                    <span data-t="name">
+                        Namn
+                    </span>
 
                     <input
                         type="text"
@@ -356,7 +466,9 @@
 
                 <!-- Email -->
                 <label>
-                    <span data-t="email"></span>
+                    <span data-t="email">
+                        E-post
+                    </span>
 
                     <input
                         type="email"
@@ -368,7 +480,9 @@
 
                 <!-- Product size -->
                 <label>
-                    <span data-t="interest"></span>
+                    <span data-t="interest">
+                        Jag är intresserad av
+                    </span>
 
                     <select
                         id="size"
@@ -404,7 +518,9 @@
 
                 <!-- Message -->
                 <label>
-                    <span data-t="message"></span>
+                    <span data-t="message">
+                        Meddelande
+                    </span>
 
                     <textarea
                         name="message"
@@ -418,7 +534,9 @@
                     type="submit"
                     class="gold"
                     data-t="send"
-                ></button>
+                >
+                    Skicka förfrågan
+                </button>
             </form>
         </section>
 
@@ -432,7 +550,9 @@
             <small>OLIVOLI</small>
         </div>
 
-        <p data-t="footer"></p>
+        <p data-t="footer">
+            Uråldrig tradition, buteljerad för modern gastronomi.
+        </p>
 
         <p>
             <a href="mailto:hej@syriangold.se">
