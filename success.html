@@ -3,17 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Tack | Syrian Gold</title>
-
     <style>
         * {
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         body {
@@ -23,25 +17,17 @@
             place-items: center;
             padding: 20px;
             text-align: center;
-
-            background:
-                linear-gradient(
-                    rgba(16, 24, 13, 0.80),
-                    rgba(16, 24, 13, 0.93)
-                ),
-                url("assets/hero.jpg") center / cover no-repeat;
-
+            background: linear-gradient(rgba(16, 24, 13, .8), rgba(16, 24, 13, .93)), url("assets/hero.jpg") center/cover no-repeat;
             color: #f4f0e6;
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif
         }
 
         .box {
             width: min(810px, 100%);
             padding: 65px 35px;
-            background: rgba(23, 35, 21, 0.94);
-            border: 1px solid rgba(190, 122, 20, 0.65);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(8px);
+            background: rgba(23, 35, 21, .94);
+            border: 1px solid rgba(190, 122, 20, .65);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .45)
         }
 
         .checkmark {
@@ -53,23 +39,20 @@
             border: 1px solid #be7a14;
             border-radius: 50%;
             color: #d9972e;
-            font-size: 30px;
+            font-size: 30px
         }
 
         h1 {
             margin: 0 0 24px;
-            font-family: Georgia, serif;
-            font-size: clamp(42px, 7vw, 64px);
-            font-weight: 400;
-            line-height: 1.15;
+            font: 400 clamp(42px, 7vw, 64px)/1.15 Georgia, serif
         }
 
         p {
             max-width: 620px;
-            margin: 0 auto;
+            margin: auto;
             color: #c9cec4;
             font-size: 17px;
-            line-height: 1.9;
+            line-height: 1.9
         }
 
         .home-button {
@@ -77,44 +60,10 @@
             margin-top: 32px;
             padding: 16px 28px;
             background: #be7a14;
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 13px;
-            font-weight: 600;
-            transition:
-                background-color 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .home-button:hover {
-            background: #d18a1a;
-            transform: translateY(-3px);
-        }
-
-        .home-button:focus-visible {
-            outline: 2px solid #ffffff;
-            outline-offset: 4px;
-        }
-
-        html[dir="rtl"] body {
-            font-family: Arial, sans-serif;
-        }
-
-        html[dir="rtl"] h1 {
-            font-family: Arial, sans-serif;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-            .box {
-                padding: 48px 22px;
-            }
-
-            p {
-                font-size: 15px;
-            }
+            font-weight: 600
         }
     </style>
 </head>
@@ -122,76 +71,11 @@
 <body>
     <main class="box">
         <div class="checkmark" aria-hidden="true">✓</div>
-
-        <h1 id="successTitle">Tack för ditt meddelande</h1>
-
-        <p id="successMessage">
-            Ditt meddelande har skickats. Vi återkommer så snart som möjligt.
-        </p>
-
-        index.html
-            Tillbaka till startsidan
-        </a>
+        <h1 id="successTitle">Tack for ditt meddelande</h1>
+        <p id="successMessage">Ditt meddelande har skickats. Vi aterkommer sa snart som mojligt.</p><a
+            class="home-button" id="homeButton" href="index.html">Tillbaka till startsidan</a>
     </main>
-
-    <script>
-        "use strict";
-
-        const successTranslations = {
-            sv: {
-                pageTitle: "Tack | Syrian Gold",
-                title: "Tack för ditt meddelande",
-                message:
-                    "Ditt meddelande har skickats. Vi återkommer så snart som möjligt.",
-                button: "Tillbaka till startsidan"
-            },
-
-            en: {
-                pageTitle: "Thank you | Syrian Gold",
-                title: "Thank you for your message",
-                message:
-                    "Your message has been sent successfully. We will contact you as soon as possible.",
-                button: "Return to the homepage"
-            },
-
-            ar: {
-                pageTitle: "شكراً لك | Syrian Gold",
-                title: "شكراً لك على رسالتك",
-                message:
-                    "تم إرسال رسالتك بنجاح. سنتواصل معك في أقرب وقت ممكن.",
-                button: "العودة إلى الصفحة الرئيسية"
-            }
-        };
-
-        const savedLanguage =
-            localStorage.getItem("syrianGoldLanguage") || "sv";
-
-        const selectedLanguage =
-            successTranslations[savedLanguage]
-                ? savedLanguage
-                : "sv";
-
-        const translation =
-            successTranslations[selectedLanguage];
-
-        document.documentElement.lang = selectedLanguage;
-
-        document.documentElement.dir =
-            selectedLanguage === "ar"
-                ? "rtl"
-                : "ltr";
-
-        document.title = translation.pageTitle;
-
-        document.getElementById("successTitle").textContent =
-            translation.title;
-
-        document.getElementById("successMessage").textContent =
-            translation.message;
-
-        document.getElementById("homeButton").textContent =
-            translation.button;
-    </script>
+    <script>"use strict"; const t = { sv: { pageTitle: "Tack | Syrian Gold", title: "Tack för ditt meddelande", message: "Ditt meddelande har skickats. Vi återkommer så snart som möjligt.", button: "Tillbaka till startsidan" }, en: { pageTitle: "Thank you | Syrian Gold", title: "Thank you for your message", message: "Your message has been sent successfully. We will contact you as soon as possible.", button: "Return to the homepage" }, ar: { pageTitle: "شكراً لك | Syrian Gold", title: "شكراً لك على رسالتك", message: "تم إرسال رسالتك بنجاح. سنتواصل معك في أقرب وقت ممكن.", button: "العودة إلى الصفحة الرئيسية" } }; const lang = t[localStorage.getItem("sglang")] ? localStorage.getItem("sglang") : "sv"; document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"; document.title = t[lang].pageTitle; document.getElementById("successTitle").textContent = t[lang].title; document.getElementById("successMessage").textContent = t[lang].message; document.getElementById("homeButton").textContent = t[lang].button;</script>
 </body>
 
 </html>
