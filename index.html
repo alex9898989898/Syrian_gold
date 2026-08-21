@@ -1,168 +1,457 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="description"
+        content="Syrian Gold Olivoli – premium extra virgin olivolja med syriskt ursprung."
+    >
+
     <title>Syrian Gold | Olivoli</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    https://fonts.gstatic.com
+
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
-    <header><a class="logo" href="#top">SYRIAN GOLD<small>OLIVOLI</small></a><button class="menu">☰</button>
-    <nav aria-label="Huvudmeny">
-    #origin</a>
-    <araft</a>
-    <ail</a>
-    #shop</a>
-    #contact</a>
-    </nav>
-    
-    <div class="langs" aria-label="Välj språk">
-        <button type="button" data-lang="sv">SV</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="ar">العربية</button>
-    </div>
-                
-                <a class="button" href="#shop" data-t="buy"></a>
+
+    <!-- Header -->
+    <header>
+        #top
+            SYRIAN GOLD
+            <small>OLIVOLI</small>
+        </a>
+
+        <button
+            class="menu"
+            type="button"
+            aria-label="Öppna meny"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            ☰
+        </button>
+
+        <!-- Navigation -->
+        <nav
+            id="main-navigation"
+            aria-label="Huvudmeny"
+        >
+            #origin</a>
+
+            #craft</a>
+
+            #oil</a>
+
+            #shop</a>
+
+            #contact</a>
+        </nav>
+
+        <!-- Languages -->
+        <div
+            class="langs"
+            aria-label="Välj språk"
+        >
+            <button
+                type="button"
+                data-lang="sv"
+            >
+                SV
+            </button>
+
+            <button
+                type="button"
+                data-lang="en"
+            >
+                EN
+            </button>
+
+            <button
+                type="button"
+                data-lang="ar"
+            >
+                العربية
+            </button>
+        </div>
+
+        #shop</a>
     </header>
-    <section class="hero" id="top">
-        <div class="overlay"></div>
-        <div class="hero-copy reveal">
-            <p data-t="kicker"></p>
-            <h1 data-t="title"></h1><span data-t="heroText"></span><a class="gold" href="#oil" data-t="discover"></a>
-        </div>
-    </section>
-    <section class="split" id="origin">
-        <div class="photo reveal-left"><img src="assets/harvest.jpg" alt="Olives held in hands"></div>
-        <div class="copy reveal-right"><i>01 / <span data-t="origin"></span></i>
-            <h2 data-t="originTitle"></h2>
-            <p data-t="originText"></p>
-            <blockquote data-t="quote"></blockquote>
-        </div>
-    </section>
-    <section class="process" id="craft">
-        <div class="heading reveal"><i>02 / <span data-t="craft"></span></i>
-            <h2 data-t="craftTitle"></h2>
-            <p data-t="craftLead"></p>
-        </div>
-        <div class="cards">
-            <article class="reveal s1"><b>01</b>
-                <h3 data-t="step1"></h3>
-                <p data-t="step1t"></p>
-            </article>
-            <article class="reveal s2"><b>02</b>
-                <h3 data-t="step2"></h3>
-                <p data-t="step2t"></p>
-            </article>
-            <article class="reveal s3"><b>03</b>
-                <h3 data-t="step3"></h3>
-                <p data-t="step3t"></p>
-            </article>
-        </div>
-    </section>
-    <section class="split bottle" id="oil">
-        <div class="photo reveal-left"><img src="assets/bottle.jpg" alt="Premium olive oil bottle"></div>
-        <div class="copy reveal-right"><i>03 / <span data-t="oil"></span></i>
-            <h2>Premium Extra Virgin</h2>
-            <p data-t="oilText"></p>
-            <dl>
-                <div>
-                    <dt data-t="taste"></dt>
-                    <dd data-t="tasteV"></dd>
-                </div>
-                <div>
-                    <dt data-t="source"></dt>
-                    <dd data-t="sourceV"></dd>
-                </div>
-                <div>
-                    <dt data-t="serve"></dt>
-                    <dd data-t="serveV"></dd>
-                </div>
-            </dl>
-        </div>
-    </section>
-    <section class="shop" id="shop">
-        <div class="heading reveal"><i>04 / <span data-t="collection"></span></i>
-            <h2 data-t="shopTitle"></h2>
-            <p data-t="shopLead"></p>
-        </div>
-        <div class="products">
-            <article class="reveal s1">
-                <div class="pack">750<small>ML</small></div>
-                <h3>750 ml</h3><a href="#contact" data-size="750 ml" data-t="price"></a>
-            </article>
-            <article class="reveal s2 featured"><em data-t="popular"></em>
-                <div class="pack tall">1<small>L</small></div>
-                <h3>1 L</h3><a href="#contact" data-size="1 L" data-t="price"></a>
-            </article>
-            <article class="reveal s3">
-                <div class="pack tin">2<small>L</small></div>
-                <h3>2 L</h3><a href="#contact" data-size="2 L" data-t="price"></a>
-            </article>
-            <article class="reveal s4">
-                <div class="pack tin big">3<small>L</small></div>
-                <h3>3 L</h3><a href="#contact" data-size="3 L" data-t="price"></a>
-            </article>
-        </div>
-    </section>
-    <section class="contact" id="contact">
-        <div class="reveal-left"><i data-t="contact"></i>
-            <h2 data-t="contactTitle"></h2>
-            <p data-t="contactText"></p>
-        </div>
-<form
-    class="reveal-right"
-    name="order"
-    method="POST"
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    action="/success.html"
->
-    <input type="hidden" name="form-name" value="order">
 
-    <p class="hidden">
-        <label>
-            Fyll inte i detta:
-            <input name="bot-field">
-        </label>
-    </p>
 
-    <label>
-        <span data-t="name"></span>
-        <input type="text"   </label>
+    <main>
 
-    <label>
-        <span data-t="interest"></span>
+        <!-- Hero -->
+        <section
+            class="hero"
+            id="top"
+        >
+            <div
+                class="overlay"
+                aria-hidden="true"
+            ></div>
 
-        <select id="size" name="product" required>
-            <option value="" disabled selected>Välj storlek</option>
-            <option value="750 ml">750 ml</option>
-            <option value="1 L">1 L</option>
-            <option value="2 L">2 L</option>
-            <option value="3 L">3 L</option>
-        </select>
-    </label>
+            <div class="hero-copy reveal">
+                <p data-t="kicker"></p>
 
-    <label>
-        <span data-t="message"></span>
-        <textarea name="message" rows="4" required></textarea>
-    </label>
+                <h1 data-t="title"></h1>
 
-    <button type="submit" class="gold" data-t="send"></button>
-</form>
+                <span data-t="heroText"></span>
 
-    </section>
+                #oil</a>
+            </div>
+        </section>
+
+
+        <!-- Origin -->
+        <section
+            class="split"
+            id="origin"
+        >
+            <div class="photo reveal-left">
+                assets/harvest.jpg
+            </div>
+
+            <div class="copy reveal-right">
+                <i>
+                    01 /
+                    <span data-t="origin"></span>
+                </i>
+
+                <h2 data-t="originTitle"></h2>
+
+                <p data-t="originText"></p>
+
+                <blockquote data-t="quote"></blockquote>
+            </div>
+        </section>
+
+
+        <!-- Craft -->
+        <section
+            class="process"
+            id="craft"
+        >
+            <div class="heading reveal">
+                <i>
+                    02 /
+                    <span data-t="craft"></span>
+                </i>
+
+                <h2 data-t="craftTitle"></h2>
+
+                <p data-t="craftLead"></p>
+            </div>
+
+            <div class="cards">
+
+                <article class="reveal s1">
+                    <b>01</b>
+
+                    <h3 data-t="step1"></h3>
+
+                    <p data-t="step1t"></p>
+                </article>
+
+                <article class="reveal s2">
+                    <b>02</b>
+
+                    <h3 data-t="step2"></h3>
+
+                    <p data-t="step2t"></p>
+                </article>
+
+                <article class="reveal s3">
+                    <b>03</b>
+
+                    <h3 data-t="step3"></h3>
+
+                    <p data-t="step3t"></p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- Our oil -->
+        <section
+            class="split bottle"
+            id="oil"
+        >
+            <div class="photo reveal-left">
+                assets/bottle.jpg
+            </div>
+
+            <div class="copy reveal-right">
+                <i>
+                    03 /
+                    <span data-t="oil"></span>
+                </i>
+
+                <h2 data-t="oilTitle">
+                    Premium Extra Virgin
+                </h2>
+
+                <p data-t="oilText"></p>
+
+                <dl>
+                    <div>
+                        <dt data-t="taste"></dt>
+                        <dd data-t="tasteV"></dd>
+                    </div>
+
+                    <div>
+                        <dt data-t="source"></dt>
+                        <dd data-t="sourceV"></dd>
+                    </div>
+
+                    <div>
+                        <dt data-t="serve"></dt>
+                        <dd data-t="serveV"></dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+
+        <!-- Product collection -->
+        <section
+            class="shop"
+            id="shop"
+        >
+            <div class="heading reveal">
+                <i>
+                    04 /
+                    <span data-t="collection"></span>
+                </i>
+
+                <h2 data-t="shopTitle"></h2>
+
+                <p data-t="shopLead"></p>
+            </div>
+
+            <div class="products">
+
+                <!-- 750 ml -->
+                <article class="reveal s1">
+                    <div class="pack">
+                        750
+                        <small>ML</small>
+                    </div>
+
+                    <h3>750 ml</h3>
+
+                    #contact</a>
+                </article>
+
+                <!-- 1 liter -->
+                <article class="reveal s2 featured">
+                    <em data-t="popular"></em>
+
+                    <div class="pack tall">
+                        1
+                        <small>L</small>
+                    </div>
+
+                    <h3>1 L</h3>
+
+                    #contact</a>
+                </article>
+
+                <!-- 2 liter -->
+                <article class="reveal s3">
+                    <div class="pack tin">
+                        2
+                        <small>L</small>
+                    </div>
+
+                    <h3>2 L</h3>
+
+                    #contact</a>
+                </article>
+
+                <!-- 3 liter -->
+                <article class="reveal s4">
+                    <div class="pack tin big">
+                        3
+                        <small>L</small>
+                    </div>
+
+                    <h3>3 L</h3>
+
+                    #contact</a>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- Contact and order form -->
+        <section
+            class="contact"
+            id="contact"
+        >
+            <div class="reveal-left">
+                <i data-t="contact"></i>
+
+                <h2 data-t="contactTitle"></h2>
+
+                <p data-t="contactText"></p>
+            </div>
+
+            /success.html
+                <!-- Required by Netlify Forms -->
+                <input
+                    type="hidden"
+                    name="form-name"
+                    value="order"
+                >
+
+                <!-- Netlify spam protection -->
+                <p class="hidden">
+                    <label>
+                        Fyll inte i detta fält:
+
+                        <input
+                            type="text"
+                            name="bot-field"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+                    </label>
+                </p>
+
+                <!-- Name -->
+                <label>
+                    <span data-t="name"></span>
+
+                    <input
+                        type="text"
+                        name="name"
+                        autocomplete="name"
+                        required
+                    >
+                </label>
+
+                <!-- Email -->
+                <label>
+                    <span data-t="email"></span>
+
+                    <input
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+                </label>
+
+                <!-- Product size -->
+                <label>
+                    <span data-t="interest"></span>
+
+                    <select
+                        id="size"
+                        name="product"
+                        required
+                    >
+                        <option
+                            value=""
+                            data-t="selectSize"
+                            selected
+                            disabled
+                        >
+                            Välj storlek
+                        </option>
+
+                        <option value="750 ml">
+                            750 ml
+                        </option>
+
+                        <option value="1 L">
+                            1 L
+                        </option>
+
+                        <option value="2 L">
+                            2 L
+                        </option>
+
+                        <option value="3 L">
+                            3 L
+                        </option>
+                    </select>
+                </label>
+
+                <!-- Message -->
+                <label>
+                    <span data-t="message"></span>
+
+                    <textarea
+                        name="message"
+                        rows="4"
+                        required
+                    ></textarea>
+                </label>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="gold"
+                    data-t="send"
+                ></button>
+            </form>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
     <footer>
-        <div class="logo">SYRIAN GOLD<small>OLIVOLI</small></div>
+        <div class="logo">
+            SYRIAN GOLD
+            <small>OLIVOLI</small>
+        </div>
+
         <p data-t="footer"></p>
-        <p>hej@syriangold.se<br>Gothenburg, Sweden</p><small>© 2026 Syrian Gold</small>
+
+        <p>
+            <a href="mailto:hej@syriangold.se">
+                hej@syriangold.se
+            </a>
+
+            <br>
+
+            Gothenburg, Sweden
+        </p>
+
+        <small>
+            © 2026 Syrian Gold
+        </small>
     </footer>
+
+
     <script src="app.js"></script>
+
 </body>
 
 </html>

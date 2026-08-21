@@ -225,7 +225,6 @@ const translations = {
     }
 };
 
-
 /*
 |--------------------------------------------------------------------------
 | DOM elements
@@ -239,59 +238,6 @@ const navigation = document.querySelector("nav");
 const sizeSelect = document.querySelector("#size");
 const productLinks = document.querySelectorAll("[data-size]");
 const contactForm = document.querySelector('form[name="order"]');
-
-
-/*
-|--------------------------------------------------------------------------
-| Apply selected language
-|--------------------------------------------------------------------------
-*/
-
-function setLanguage(language) {
-    const selectedTranslations = translations[language];
-
-    if (!selectedTranslations) {
-        console.warn(`Language "${language}" is not available.`);
-        return;
-    }
-
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-
-    translationElements.forEach((element) => {
-        const translationKey = element.dataset.t;
-        const translatedText = selectedTranslations[translationKey];
-
-        if (translatedText !== undefined) {
-            /*
-             * innerHTML is used because some translations contain <br>.
-             * All translation content is defined locally in this file.
-             */
-            element.innerHTML = translatedText;
-        }
-    });
-
-    /*
-     * The Premium Extra Virgin heading does not currently have data-t
-     * in the original HTML. This selector translates it separately.
-     */
-    const oilHeading = document.querySelector("#oil .copy h2");
-
-    if (oilHeading && selectedTranslations.oilTitle) {
-        oilHeading.textContent = selectedTranslations.oilTitle;
-    }
-
-    languageButtons.forEach((button) => {
-        const isActive = button.dataset.lang === language;
-
-        button.classList.toggle("active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-    });
-
-    localStorage.setItem("syrianGoldLanguage", language);
-
-    updateAccessibilityLabels(language);
-}
 
 
 /*
@@ -310,24 +256,91 @@ function updateAccessibilityLabels(language) {
             openMenu: "Öppna meny",
             closeMenu: "Stäng meny"
         },
+
         en: {
             openMenu: "Open menu",
             closeMenu: "Close menu"
         },
+
         ar: {
             openMenu: "فتح القائمة",
             closeMenu: "إغلاق القائمة"
         }
     };
 
+    const selectedLabels = labels[language] || labels.sv;
     const menuIsOpen = navigation?.classList.contains("open");
 
     menuButton.setAttribute(
         "aria-label",
         menuIsOpen
-            ? labels[language].closeMenu
-            : labels[language].openMenu
+            ? selectedLabels.closeMenu
+            : selectedLabels.openMenu
     );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Apply selected language
+|--------------------------------------------------------------------------
+*/
+
+function setLanguage(language) {
+    const selectedTranslations = translations[language];
+
+    if (!selectedTranslations) {
+        console.warn(`Language "${language}" is not available.`);
+        return;
+    }
+
+    document.documentElement.lang = language;
+    document.documentElement.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+    document.body.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+    translationElements.forEach((element) => {
+        const translationKey = element.dataset.t;
+        const translatedText =
+            selectedTranslations[translationKey];
+
+        if (translatedText !== undefined) {
+            element.innerHTML = translatedText;
+        }
+    });
+
+    /*
+     * Translates the oil heading if the heading
+     * does not yet contain data-t="oilTitle".
+     */
+    const oilHeading =
+        document.querySelector("#oil .copy h2");
+
+    if (oilHeading && selectedTranslations.oilTitle) {
+        oilHeading.textContent =
+            selectedTranslations.oilTitle;
+    }
+
+    languageButtons.forEach((button) => {
+        const isActive =
+            button.dataset.lang === language;
+
+        button.classList.toggle("active", isActive);
+
+        button.setAttribute(
+            "aria-pressed",
+            String(isActive)
+        );
+    });
+
+    /*
+     * The success page must read the same key.
+     */
+    localStorage.setItem("sglang", language);
+
+    updateAccessibilityLabels(language);
 }
 
 
@@ -339,7 +352,9 @@ function updateAccessibilityLabels(language) {
 
 languageButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const selectedLanguage = button.dataset.lang;
+        const selectedLanguage =
+            button.dataset.lang;
+
         setLanguage(selectedLanguage);
     });
 });
@@ -352,9 +367,13 @@ languageButtons.forEach((button) => {
 */
 
 function loadSavedLanguage() {
-    const savedLanguage = localStorage.getItem("syrianGoldLanguage");
+    const savedLanguage =
+        localStorage.getItem("sglang");
 
-    if (savedLanguage && translations[savedLanguage]) {
+    if (
+        savedLanguage &&
+        translations[savedLanguage]
+    ) {
         setLanguage(savedLanguage);
         return;
     }
@@ -373,13 +392,20 @@ loadSavedLanguage();
 
 if (menuButton && navigation) {
     menuButton.setAttribute("type", "button");
-    menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-controls", "main-navigation");
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+    menuButton.setAttribute(
+        "aria-controls",
+        "main-navigation"
+    );
 
     navigation.id = "main-navigation";
 
     menuButton.addEventListener("click", () => {
-        const menuIsOpen = navigation.classList.toggle("open");
+        const menuIsOpen =
+            navigation.classList.toggle("open");
 
         menuButton.setAttribute(
             "aria-expanded",
@@ -387,57 +413,92 @@ if (menuButton && navigation) {
         );
 
         const currentLanguage =
-            localStorage.getItem("syrianGoldLanguage") || "sv";
+            localStorage.getItem("sglang") || "sv";
 
-        updateAccessibilityLabels(currentLanguage);
+        updateAccessibilityLabels(
+            currentLanguage
+        );
     });
 
-    navigation.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            navigation.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
+    navigation
+        .querySelectorAll("a")
+        .forEach((link) => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("open");
 
-            const currentLanguage =
-                localStorage.getItem("syrianGoldLanguage") || "sv";
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-            updateAccessibilityLabels(currentLanguage);
+                const currentLanguage =
+                    localStorage.getItem("sglang") ||
+                    "sv";
+
+                updateAccessibilityLabels(
+                    currentLanguage
+                );
+            });
         });
-    });
 
-    document.addEventListener("click", (event) => {
-        const clickedInsideNavigation = navigation.contains(event.target);
-        const clickedMenuButton = menuButton.contains(event.target);
+    document.addEventListener(
+        "click",
+        (event) => {
+            const clickedInsideNavigation =
+                navigation.contains(event.target);
 
-        if (
-            navigation.classList.contains("open") &&
-            !clickedInsideNavigation &&
-            !clickedMenuButton
-        ) {
-            navigation.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
+            const clickedMenuButton =
+                menuButton.contains(event.target);
 
-            const currentLanguage =
-                localStorage.getItem("syrianGoldLanguage") || "sv";
+            if (
+                navigation.classList.contains("open") &&
+                !clickedInsideNavigation &&
+                !clickedMenuButton
+            ) {
+                navigation.classList.remove("open");
 
-            updateAccessibilityLabels(currentLanguage);
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                const currentLanguage =
+                    localStorage.getItem("sglang") ||
+                    "sv";
+
+                updateAccessibilityLabels(
+                    currentLanguage
+                );
+            }
         }
-    });
+    );
 
-    document.addEventListener("keydown", (event) => {
-        if (
-            event.key === "Escape" &&
-            navigation.classList.contains("open")
-        ) {
-            navigation.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.focus();
+    document.addEventListener(
+        "keydown",
+        (event) => {
+            if (
+                event.key === "Escape" &&
+                navigation.classList.contains("open")
+            ) {
+                navigation.classList.remove("open");
 
-            const currentLanguage =
-                localStorage.getItem("syrianGoldLanguage") || "sv";
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-            updateAccessibilityLabels(currentLanguage);
+                menuButton.focus();
+
+                const currentLanguage =
+                    localStorage.getItem("sglang") ||
+                    "sv";
+
+                updateAccessibilityLabels(
+                    currentLanguage
+                );
+            }
         }
-    });
+    );
 }
 
 
@@ -449,7 +510,8 @@ if (menuButton && navigation) {
 
 productLinks.forEach((productLink) => {
     productLink.addEventListener("click", () => {
-        const selectedSize = productLink.dataset.size;
+        const selectedSize =
+            productLink.dataset.size;
 
         if (!sizeSelect || !selectedSize) {
             return;
@@ -463,15 +525,17 @@ productLinks.forEach((productLink) => {
     });
 });
 
+
 /*
 |--------------------------------------------------------------------------
 | Scroll reveal animations
 |--------------------------------------------------------------------------
 */
 
-const animatedElements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right"
-);
+const animatedElements =
+    document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+    );
 
 function showAllAnimatedElements() {
     animatedElements.forEach((element) => {
@@ -479,9 +543,10 @@ function showAllAnimatedElements() {
     });
 }
 
-const reducedMotionEnabled = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+const reducedMotionEnabled =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 if (reducedMotionEnabled) {
     showAllAnimatedElements();
@@ -491,17 +556,23 @@ if (reducedMotionEnabled) {
         rootMargin: "0px 0px -45px 0px"
     };
 
-    const animationObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        observerOptions
-    );
+    const animationObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+                    }
+                });
+            },
+            observerOptions
+        );
 
     animatedElements.forEach((element) => {
         animationObserver.observe(element);
@@ -518,34 +589,46 @@ if (reducedMotionEnabled) {
 */
 
 if (contactForm) {
-    contactForm.addEventListener("submit", () => {
-        const submitButton = contactForm.querySelector(
-            'button[type="submit"], button.gold'
-        );
+    contactForm.addEventListener(
+        "submit",
+        () => {
+            const submitButton =
+                contactForm.querySelector(
+                    'button[type="submit"]'
+                );
 
-        if (!submitButton) {
-            return;
+            if (!submitButton) {
+                return;
+            }
+
+            const currentLanguage =
+                localStorage.getItem("sglang") ||
+                "sv";
+
+            const sendingMessages = {
+                sv: "Skickar...",
+                en: "Sending...",
+                ar: "جارٍ الإرسال..."
+            };
+
+            submitButton.disabled = true;
+
+            submitButton.textContent =
+                sendingMessages[currentLanguage] ||
+                sendingMessages.sv;
+
+            submitButton.setAttribute(
+                "aria-busy",
+                "true"
+            );
         }
-
-        const currentLanguage =
-            localStorage.getItem("syrianGoldLanguage") || "sv";
-
-        const sendingMessages = {
-            sv: "Skickar...",
-            en: "Sending...",
-            ar: "جارٍ الإرسال..."
-        };
-
-        submitButton.disabled = true;
-        submitButton.textContent = sendingMessages[currentLanguage];
-        submitButton.setAttribute("aria-busy", "true");
-    });
+    );
 }
 
 
 /*
 |--------------------------------------------------------------------------
-| Close mobile navigation when desktop layout is restored
+| Restore navigation on desktop
 |--------------------------------------------------------------------------
 */
 
@@ -556,6 +639,17 @@ window.addEventListener("resize", () => {
         menuButton
     ) {
         navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        const currentLanguage =
+            localStorage.getItem("sglang") || "sv";
+
+        updateAccessibilityLabels(
+            currentLanguage
+        );
     }
 });
