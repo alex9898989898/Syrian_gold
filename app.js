@@ -457,15 +457,11 @@ productLinks.forEach((productLink) => {
 
         sizeSelect.value = selectedSize;
 
-        /*
-         * Give focus after the page scrolls to the form.
-         */
         window.setTimeout(() => {
             sizeSelect.focus();
         }, 600);
     });
 });
-
 
 /*
 |--------------------------------------------------------------------------

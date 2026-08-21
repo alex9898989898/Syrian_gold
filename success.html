@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
     <title>Tack | Syrian Gold</title>
 
@@ -21,91 +25,133 @@
             text-align: center;
 
             background:
-                linear-gradient(#10180dcc, #10180dee),
-                url("assets/hero.jpg") center / cover;
+                linear-gradient(
+                    rgba(16, 24, 13, 0.80),
+                    rgba(16, 24, 13, 0.93)
+                ),
+                url("assets/hero.jpg") center / cover no-repeat;
 
             color: #f4f0e6;
             font-family: Arial, sans-serif;
         }
 
         .box {
-            width: 100%;
-            max-width: 650px;
-            padding: 55px 30px;
-            background: #172315e8;
-            border: 1px solid #be7a1466;
+            width: min(810px, 100%);
+            padding: 65px 35px;
+            background: rgba(23, 35, 21, 0.94);
+            border: 1px solid rgba(190, 122, 20, 0.65);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+        }
+
+        .checkmark {
+            width: 70px;
+            height: 70px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 25px;
+            border: 1px solid #be7a14;
+            border-radius: 50%;
+            color: #d9972e;
+            font-size: 30px;
         }
 
         h1 {
-            margin-top: 0;
+            margin: 0 0 24px;
             font-family: Georgia, serif;
-            font-size: clamp(38px, 7vw, 55px);
+            font-size: clamp(42px, 7vw, 64px);
             font-weight: 400;
-            line-height: 1.1;
+            line-height: 1.15;
         }
 
         p {
-            margin: 20px 0;
-            line-height: 1.8;
+            max-width: 620px;
+            margin: 0 auto;
             color: #c9cec4;
+            font-size: 17px;
+            line-height: 1.9;
         }
 
-        a {
+        .home-button {
             display: inline-block;
-            margin-top: 20px;
-            padding: 15px 25px;
+            margin-top: 32px;
+            padding: 16px 28px;
             background: #be7a14;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 13px;
+            font-weight: 600;
             transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+                background-color 0.25s ease,
+                transform 0.25s ease;
         }
 
-        a:hover {
-            background: #d29127;
-            transform: translateY(-2px);
+        .home-button:hover {
+            background: #d18a1a;
+            transform: translateY(-3px);
+        }
+
+        .home-button:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 4px;
         }
 
         html[dir="rtl"] body {
             font-family: Arial, sans-serif;
         }
 
-        html[dir="rtl"] .box {
-            direction: rtl;
+        html[dir="rtl"] h1 {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .box {
+                padding: 48px 22px;
+            }
+
+            p {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
     <main class="box">
-        <h1 id="success-title">Tack för ditt meddelande</h1>
+        <div class="checkmark" aria-hidden="true">✓</div>
 
-        <p id="success-message">
-            Ditt meddelande har skickats. Vi återkommer till dig så snart som möjligt.
+        <h1 id="successTitle">Tack för ditt meddelande</h1>
+
+        <p id="successMessage">
+            Ditt meddelande har skickats. Vi återkommer så snart som möjligt.
         </p>
 
-        /
+        index.html
             Tillbaka till startsidan
         </a>
     </main>
 
     <script>
-        const translations = {
+        "use strict";
+
+        const successTranslations = {
             sv: {
                 pageTitle: "Tack | Syrian Gold",
                 title: "Tack för ditt meddelande",
                 message:
-                    "Ditt meddelande har skickats. Vi återkommer till dig så snart som möjligt.",
-                back: "Tillbaka till startsidan"
+                    "Ditt meddelande har skickats. Vi återkommer så snart som möjligt.",
+                button: "Tillbaka till startsidan"
             },
 
             en: {
                 pageTitle: "Thank you | Syrian Gold",
                 title: "Thank you for your message",
                 message:
-                    "Your message has been sent. We will get back to you as soon as possible.",
-                back: "Back to the homepage"
+                    "Your message has been sent successfully. We will contact you as soon as possible.",
+                button: "Return to the homepage"
             },
 
             ar: {
@@ -113,30 +159,38 @@
                 title: "شكراً لك على رسالتك",
                 message:
                     "تم إرسال رسالتك بنجاح. سنتواصل معك في أقرب وقت ممكن.",
-                back: "العودة إلى الصفحة الرئيسية"
+                button: "العودة إلى الصفحة الرئيسية"
             }
         };
 
-        const selectedLanguage =
+        const savedLanguage =
             localStorage.getItem("syrianGoldLanguage") || "sv";
 
-        const language =
-            translations[selectedLanguage] ? selectedLanguage : "sv";
+        const selectedLanguage =
+            successTranslations[savedLanguage]
+                ? savedLanguage
+                : "sv";
 
-        document.documentElement.lang = language;
+        const translation =
+            successTranslations[selectedLanguage];
+
+        document.documentElement.lang = selectedLanguage;
+
         document.documentElement.dir =
-            language === "ar" ? "rtl" : "ltr";
+            selectedLanguage === "ar"
+                ? "rtl"
+                : "ltr";
 
-        document.title = translations[language].pageTitle;
+        document.title = translation.pageTitle;
 
-        document.getElementById("success-title").textContent =
-            translations[language].title;
+        document.getElementById("successTitle").textContent =
+            translation.title;
 
-        document.getElementById("success-message").textContent =
-            translations[language].message;
+        document.getElementById("successMessage").textContent =
+            translation.message;
 
-        document.getElementById("back-link").textContent =
-            translations[language].back;
+        document.getElementById("homeButton").textContent =
+            translation.button;
     </script>
 </body>
 
