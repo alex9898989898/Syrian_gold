@@ -104,18 +104,53 @@
             <h2 data-t="contactTitle"></h2>
             <p data-t="contactText"></p>
         </div>
-        <form class="reveal-right" name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-            action="/success.html"><input type="hidden" name="form-name" value="order">
-            <p class="hidden"><input name="bot-field"></p><label><span data-t="name"></span><input name="name"
-                    required></label><label><span data-t="email"></span><input type="email" name="email"
-                    required></label><label><span data-t="interest"></span><select id="size" name="product">
-                    <option>750 ml</option>
-                    <option>1 L</option>
-                    <option>2 L</option>
-                    <option>3 L</option>
-                </select></label><label><span data-t="message"></span><textarea name="message" rows="4"
-                    required></textarea></label><button class="gold" data-t="send"></button>
-        </form>
+<form
+    class="reveal-right"
+    name="order"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/success.html"
+>
+    <input type="hidden" name="form-name" value="order">
+
+    <p class="hidden">
+        <label>
+            Fyll inte i detta:
+            <input name="bot-field">
+        </label>
+    </p>
+
+    <label>
+        <span data-t="name"></span>
+        <input type="text" name="name" required>
+    </label>
+
+    <label>
+        <span data-t="email"></span>
+        <input type="email" name=          <option value="750 ml">750 ml</option>
+            <option value="1 L">1 L</option>
+            <option value="2 L">2 L</option>
+            <option value="3 L">3 L</option>
+        </select>
+    </label>
+
+    <label>
+        <span data-t="message"></span>
+        <textarea
+            name="message"
+            rows="4"
+            required
+        ></textarea>
+    </label>
+
+    <button
+        type="submit"
+        class="gold"
+        data-t="send"
+    ></button>
+</form>
+
     </section>
     <footer>
         <div class="logo">SYRIAN GOLD<small>OLIVOLI</small></div>
