@@ -1,57 +1,143 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Tack | Syrian Gold</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
             display: grid;
             place-items: center;
+            padding: 20px;
             text-align: center;
-            background: linear-gradient(#10180dcc, #10180dee), url('assets/hero.jpg') center/cover;
+
+            background:
+                linear-gradient(#10180dcc, #10180dee),
+                url("assets/hero.jpg") center / cover;
+
             color: #f4f0e6;
-            font-family: Arial
+            font-family: Arial, sans-serif;
         }
 
         .box {
+            width: 100%;
             max-width: 650px;
             padding: 55px 30px;
             background: #172315e8;
-            border: 1px solid #be7a1466
+            border: 1px solid #be7a1466;
         }
 
         h1 {
-            font-family: Georgia;
-            font-size: 55px;
-            font-weight: 400
+            margin-top: 0;
+            font-family: Georgia, serif;
+            font-size: clamp(38px, 7vw, 55px);
+            font-weight: 400;
+            line-height: 1.1;
         }
 
         p {
+            margin: 20px 0;
             line-height: 1.8;
-            color: #c9cec4
+            color: #c9cec4;
         }
 
         a {
             display: inline-block;
             margin-top: 20px;
+            padding: 15px 25px;
             background: #be7a14;
             color: white;
-            padding: 15px 25px;
-            text-decoration: none
+            text-decoration: none;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        a:hover {
+            background: #d29127;
+            transform: translateY(-2px);
+        }
+
+        html[dir="rtl"] body {
+            font-family: Arial, sans-serif;
+        }
+
+        html[dir="rtl"] .box {
+            direction: rtl;
         }
     </style>
 </head>
 
 <body>
     <main class="box">
-        <h1>Tack för ditt meddelande</h1>
-        <p>Ditt meddelande har skickats.<br>Thank you. Your message has been sent.<br>شكراً لك. تم إرسال رسالتك.</p><a
-            href="/">Tillbaka</a>
+        <h1 id="success-title">Tack för ditt meddelande</h1>
+
+        <p id="success-message">
+            Ditt meddelande har skickats. Vi återkommer till dig så snart som möjligt.
+        </p>
+
+        /
+            Tillbaka till startsidan
+        </a>
     </main>
+
+    <script>
+        const translations = {
+            sv: {
+                pageTitle: "Tack | Syrian Gold",
+                title: "Tack för ditt meddelande",
+                message:
+                    "Ditt meddelande har skickats. Vi återkommer till dig så snart som möjligt.",
+                back: "Tillbaka till startsidan"
+            },
+
+            en: {
+                pageTitle: "Thank you | Syrian Gold",
+                title: "Thank you for your message",
+                message:
+                    "Your message has been sent. We will get back to you as soon as possible.",
+                back: "Back to the homepage"
+            },
+
+            ar: {
+                pageTitle: "شكراً لك | Syrian Gold",
+                title: "شكراً لك على رسالتك",
+                message:
+                    "تم إرسال رسالتك بنجاح. سنتواصل معك في أقرب وقت ممكن.",
+                back: "العودة إلى الصفحة الرئيسية"
+            }
+        };
+
+        const selectedLanguage =
+            localStorage.getItem("syrianGoldLanguage") || "sv";
+
+        const language =
+            translations[selectedLanguage] ? selectedLanguage : "sv";
+
+        document.documentElement.lang = language;
+        document.documentElement.dir =
+            language === "ar" ? "rtl" : "ltr";
+
+        document.title = translations[language].pageTitle;
+
+        document.getElementById("success-title").textContent =
+            translations[language].title;
+
+        document.getElementById("success-message").textContent =
+            translations[language].message;
+
+        document.getElementById("back-link").textContent =
+            translations[language].back;
+    </script>
 </body>
 
 </html>
