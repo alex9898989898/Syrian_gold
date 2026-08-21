@@ -123,12 +123,14 @@
 
     <label>
         <span data-t="name"></span>
-        <input type="text" name="name" required>
-    </label>
+        <input type="text"   </label>
 
     <label>
-        <span data-t="email"></span>
-        <input type="email" name=          <option value="750 ml">750 ml</option>
+        <span data-t="interest"></span>
+
+        <select id="size" name="product" required>
+            <option value="" disabled selected>Välj storlek</option>
+            <option value="750 ml">750 ml</option>
             <option value="1 L">1 L</option>
             <option value="2 L">2 L</option>
             <option value="3 L">3 L</option>
@@ -137,18 +139,10 @@
 
     <label>
         <span data-t="message"></span>
-        <textarea
-            name="message"
-            rows="4"
-            required
-        ></textarea>
+        <textarea name="message" rows="4" required></textarea>
     </label>
 
-    <button
-        type="submit"
-        class="gold"
-        data-t="send"
-    ></button>
+    <button type="submit" class="gold" data-t="send"></button>
 </form>
 
     </section>
