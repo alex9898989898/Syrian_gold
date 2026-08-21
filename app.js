@@ -10,6 +10,7 @@ const translations = {
     shopTitle: "Fyra storlekar. Samma guld.", shopLead: "Välj formatet som passar ditt bord, ditt kök eller din familj.", price: "Fråga om pris", popular: "Mest populär",
     contact: "Beställning och kontakt", contactTitle: "Bli en del av historien", contactText: "Skicka en förfrågan om priser, produktlansering, återförsäljning eller grossistmöjligheter.", name: "Namn", email: "E-post", interest: "Jag är intresserad av", selectSize: "Välj storlek", message: "Meddelande", send: "Skicka förfrågan", sending: "Skickar..."
   },
+
   en: {
     origin: "Origin", craft: "Craft", oil: "Our oil", oilTitle: "Premium Extra Virgin", collection: "Collection", contactNav: "Contact us", buy: "Buy now",
     kicker: "Cold-pressed extra virgin olive oil", title: "A living<br>legacy.", heroText: "Ancient Syrian olive groves. Bottled gold for the Scandinavian palate. Quiet luxury, shaped by centuries.", discover: "Discover the oil",
@@ -19,6 +20,7 @@ const translations = {
     shopTitle: "Four sizes. The same gold.", shopLead: "Choose the size made for your table, your kitchen or your family.", price: "Request price", popular: "Most popular",
     contact: "Orders and contact", contactTitle: "Become part of the story", contactText: "Send an enquiry about prices, product availability, retail partnerships or wholesale opportunities.", name: "Name", email: "Email", interest: "I am interested in", selectSize: "Choose a size", message: "Message", send: "Send enquiry", sending: "Sending..."
   },
+
   ar: {
     origin: "الأصل", craft: "الحرفة", oil: "زيتنا", oilTitle: "زيت زيتون بكر ممتاز", collection: "المجموعة", contactNav: "تواصل معنا", buy: "اشتر الآن",
     kicker: "زيت زيتون بكر ممتاز معصور على البارد", title: "إرث<br>نابض.", heroText: "بساتين زيتون سورية عريقة. ذهب معبأ للذائقة الاسكندنافية. فخامة هادئة صنعتها القرون.", discover: "اكتشف الزيت",
@@ -30,18 +32,34 @@ const translations = {
   }
 };
 
+
+/* =========================
+   ELEMENTS
+========================= */
+
 const languageButtons = document.querySelectorAll("[data-lang]");
 const translationElements = document.querySelectorAll("[data-t]");
+
+const languageToggle = document.querySelector(".language-toggle");
+const languageMenu = document.querySelector(".language-menu");
+
 const menuButton = document.querySelector(".menu");
 const navigation = document.querySelector("nav");
+
 const sizeSelect = document.querySelector("#size");
 const productLinks = document.querySelectorAll("[data-size]");
 const contactForm = document.querySelector('form[name="order"]');
 
+
+/* =========================
+   LANGUAGE
+========================= */
+
 function setLanguage(language) {
+
   const dictionary = translations[language] || translations.sv;
 
-  // Change language, but KEEP the website layout LTR
+  /* Keep website layout LTR */
   document.documentElement.lang = language;
   document.documentElement.dir = "ltr";
   document.body.dir = "ltr";
@@ -52,97 +70,331 @@ function setLanguage(language) {
     main.dir = language === "ar" ? "rtl" : "ltr";
   }
 
+  /* Translate all elements */
   translationElements.forEach((element) => {
+
     const value = dictionary[element.dataset.t];
+
     if (value !== undefined) {
       element.innerHTML = value;
     }
+
   });
 
+
+  /* Update active language */
   languageButtons.forEach((button) => {
+
     const active = button.dataset.lang === language;
+
     button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
+
+    button.setAttribute(
+      "aria-pressed",
+      String(active)
+    );
+
   });
 
+
+  /* Save language */
   localStorage.setItem("sglang", language);
+
+
+  /* Close language menu after selection */
+  if (languageMenu) {
+    languageMenu.classList.remove("open");
+  }
+
+  if (languageToggle) {
+    languageToggle.setAttribute("aria-expanded", "false");
+  }
+
 }
 
-languageButtons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
-setLanguage(localStorage.getItem("sglang") || "sv");
+
+/* =========================
+   LANGUAGE BUTTONS
+========================= */
+
+languageButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    setLanguage(button.dataset.lang);
+
+  });
+
+});
+
+
+/* Load saved language */
+
+setLanguage(
+  localStorage.getItem("sglang") || "sv"
+);
+
+
+/* =========================
+   LANGUAGE DROPDOWN
+========================= */
+
+if (languageToggle && languageMenu) {
+
+  languageToggle.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    const isOpen =
+      languageMenu.classList.toggle("open");
+
+    languageToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+  });
+
+
+  /* Close when clicking outside */
+
+  document.addEventListener("click", (event) => {
+
+    if (!event.target.closest(".language-picker")) {
+
+      languageMenu.classList.remove("open");
+
+      languageToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  });
+
+
+  /* Close with Escape */
+
+  document.addEventListener("keydown", (event) => {
+
+    if (
+      event.key === "Escape" &&
+      languageMenu.classList.contains("open")
+    ) {
+
+      languageMenu.classList.remove("open");
+
+      languageToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      languageToggle.focus();
+
+    }
+
+  });
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
 
 if (menuButton && navigation) {
 
-  // Open / close menu
   menuButton.addEventListener("click", (event) => {
+
     event.stopPropagation();
 
-    const open = navigation.classList.toggle("open");
+    const open =
+      navigation.classList.toggle("open");
 
-    menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.textContent = open ? "×" : "☰";
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
+
+    menuButton.textContent =
+      open ? "×" : "☰";
+
   });
 
-  // Close when clicking a navigation link
+
+  /* Close menu when clicking a link */
+
   navigation.querySelectorAll("a").forEach((link) => {
+
     link.addEventListener("click", () => {
+
       navigation.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
       menuButton.textContent = "☰";
+
     });
+
   });
 
-  // Close when clicking anywhere outside the menu
+
+  /* Close menu outside */
+
   document.addEventListener("click", (event) => {
-    const clickedInsideMenu = navigation.contains(event.target);
-    const clickedMenuButton = menuButton.contains(event.target);
+
+    const clickedInsideMenu =
+      navigation.contains(event.target);
+
+    const clickedMenuButton =
+      menuButton.contains(event.target);
 
     if (
       navigation.classList.contains("open") &&
       !clickedInsideMenu &&
       !clickedMenuButton
     ) {
+
       navigation.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
       menuButton.textContent = "☰";
+
     }
+
   });
 
-  // Close menu when pressing Escape
+
+  /* Escape */
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && navigation.classList.contains("open")) {
+
+    if (
+      event.key === "Escape" &&
+      navigation.classList.contains("open")
+    ) {
+
       navigation.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
       menuButton.textContent = "☰";
+
       menuButton.focus();
+
     }
+
   });
+
 }
 
-productLinks.forEach((link) => link.addEventListener("click", () => {
-  if (sizeSelect) sizeSelect.value = link.dataset.size;
-}));
 
-const animatedElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+/* =========================
+   PRODUCT LINKS
+========================= */
+
+productLinks.forEach((link) => {
+
+  link.addEventListener("click", () => {
+
+    if (sizeSelect) {
+      sizeSelect.value = link.dataset.size;
     }
-  }), { threshold: 0.14, rootMargin: "0px 0px -45px 0px" });
-  animatedElements.forEach((element) => observer.observe(element));
+
+  });
+
+});
+
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+const animatedElements =
+  document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right"
+  );
+
+if ("IntersectionObserver" in window) {
+
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -45px 0px"
+      }
+    );
+
+  animatedElements.forEach(
+    (element) => observer.observe(element)
+  );
+
 } else {
-  animatedElements.forEach((element) => element.classList.add("visible"));
+
+  animatedElements.forEach(
+    (element) =>
+      element.classList.add("visible")
+  );
+
 }
+
+
+/* =========================
+   CONTACT FORM
+========================= */
 
 if (contactForm) {
-  contactForm.addEventListener("submit", () => {
-    const button = contactForm.querySelector('button[type="submit"]');
-    const language = localStorage.getItem("sglang") || "sv";
-    if (button) {
-      button.disabled = true;
-      button.textContent = translations[language].sending;
+
+  contactForm.addEventListener(
+    "submit",
+    () => {
+
+      const button =
+        contactForm.querySelector(
+          'button[type="submit"]'
+        );
+
+      const language =
+        localStorage.getItem("sglang") || "sv";
+
+      if (button) {
+
+        button.disabled = true;
+
+        button.textContent =
+          translations[language].sending;
+
+      }
+
     }
-  });
+  );
+
 }
