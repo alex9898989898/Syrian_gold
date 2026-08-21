@@ -872,7 +872,6 @@ a.footer-contact-link:hover .footer-symbol {
     color: #f0b556;
     transform: translateY(-2px);
 }
-
 /* =========================
    TABLET
 ========================= */
@@ -900,6 +899,7 @@ a.footer-contact-link:hover .footer-symbol {
     }
 }
 
+
 /* =========================
    MOBILE HEADER
 ========================= */
@@ -908,17 +908,54 @@ a.footer-contact-link:hover .footer-symbol {
 
     header {
         height: 75px;
-        padding: 0 6%;
+        padding: 0 5%;
 
-        gap: 15px;
+        gap: 10px;
 
         direction: ltr !important;
     }
 
-    header .logo {
-        margin-right: auto;
+    /* Fixed brand */
+    .brand {
+        position: fixed;
+
+        top: 14px;
+        left: 5%;
+
+        z-index: 1000;
+
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+
+        filter:
+            drop-shadow(0 4px 10px rgba(0, 0, 0, 1))
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 1));
     }
 
+    .brand-image {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    .brand .logo {
+        display: flex;
+        flex-direction: column;
+
+        font-size: 18px;
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+    .brand .logo small {
+        font-size: 9px;
+    }
+
+
+    /* Navigation menu */
     nav {
         position: fixed;
 
@@ -926,14 +963,14 @@ a.footer-contact-link:hover .footer-symbol {
         left: 6%;
         right: 6%;
 
+        z-index: 2000;
+
         display: none;
 
         flex-direction: column;
 
         gap: 0;
-
         margin: 0;
-
         padding: 15px;
 
         background: rgba(11, 21, 11, 0.97);
@@ -949,10 +986,20 @@ a.footer-contact-link:hover .footer-symbol {
         padding: 15px 10px;
     }
 
+
+    /* Hamburger */
     .menu {
+        position: relative;
+
+        z-index: 2100;
+
         display: block;
 
         order: 10;
+
+        margin-left: auto;
+
+        padding: 5px;
 
         border: 0;
 
@@ -965,15 +1012,44 @@ a.footer-contact-link:hover .footer-symbol {
         cursor: pointer;
 
         direction: ltr !important;
+
+        filter: drop-shadow(0 3px 6px #000);
     }
 
+
+    /* Languages */
     .langs {
+        position: relative;
+
+        z-index: 2100;
+
         order: 5;
+
+        margin-left: auto;
+
+        display: flex;
+
+        border: 1px solid rgba(255, 255, 255, 0.4);
+
+        flex-shrink: 0;
+
+        filter: drop-shadow(0 3px 6px #000);
     }
 
+    .langs button {
+        padding: 7px 6px;
+    }
+
+
+    /* Hide desktop buy button */
     header > .button {
         display: none;
     }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
 
     .split {
         grid-template-columns: 1fr;
@@ -1003,7 +1079,6 @@ a.footer-contact-link:hover .footer-symbol {
 
     .footer-content {
         grid-template-columns: 1fr;
-
         gap: 42px;
     }
 
@@ -1012,11 +1087,32 @@ a.footer-contact-link:hover .footer-symbol {
     }
 }
 
+
 /* =========================
-   MOBILE
+   SMALL MOBILE
 ========================= */
 
 @media (max-width: 580px) {
+
+    .brand {
+        top: 12px;
+        left: 4%;
+
+        gap: 6px;
+    }
+
+    .brand-image {
+        width: 28px;
+        height: 28px;
+    }
+
+    .brand .logo {
+        font-size: 16px;
+    }
+
+    .brand .logo small {
+        font-size: 8px;
+    }
 
     .hero {
         min-height: 650px;
@@ -1053,7 +1149,6 @@ a.footer-contact-link:hover .footer-symbol {
 
     .site-footer {
         padding: 52px 22px 24px;
-
         direction: ltr !important;
     }
 
@@ -1069,7 +1164,6 @@ a.footer-contact-link:hover .footer-symbol {
     .footer-symbol {
         width: 32px;
         height: 32px;
-
         min-width: 32px;
         flex-basis: 32px;
     }
@@ -1077,7 +1171,6 @@ a.footer-contact-link:hover .footer-symbol {
     .footer-symbol svg {
         width: 13px;
         height: 13px;
-
         max-width: 13px;
         max-height: 13px;
     }
@@ -1099,76 +1192,39 @@ a.footer-contact-link:hover .footer-symbol {
     }
 }
 
-.brand {
-    position: fixed;
-    top: 20px;
-    left: 6%;
-    z-index: 1000;
 
-    display: flex;
-    align-items: center;
-    gap: 12px;
+/* =========================
+   VERY SMALL PHONES
+========================= */
 
-    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.95))
-            drop-shadow(0 2px 3px rgba(0, 0, 0, 0.9));
-}
+@media (max-width: 380px) {
 
-.brand-image {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-
-    
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-}
-
-@media (max-width: 768px) {
     .brand {
-        top: 14px;
-        left: 5%;
-        gap: 8px;
-
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 1));
+        left: 3%;
+        gap: 5px;
     }
 
     .brand-image {
-        width: 32px;
-        height: 32px;
+        width: 25px;
+        height: 25px;
     }
 
-    .logo {
-        font-size: 18px;
+    .brand .logo {
+        font-size: 14px;
+        letter-spacing: 0.12em;
     }
 
-    .logo small {
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .brand {
-        top: 12px;
-        left: 4%;
-        gap: 6px;
-
-        filter: drop-shadow(0 4px 10px #000);
+    .brand .logo small {
+        font-size: 7px;
+        letter-spacing: 0.35em;
     }
 
-    .brand-image {
-        width: 28px;
-        height: 28px;
+    .langs button {
+        padding: 6px 5px;
+        font-size: 8px;
     }
 
-    .logo {
-        font-size: 16px;
-    }
-
-    .logo small {
-        font-size: 9px;
+    .menu {
+        font-size: 23px;
     }
 }
