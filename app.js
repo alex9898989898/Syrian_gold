@@ -40,18 +40,31 @@ const contactForm = document.querySelector('form[name="order"]');
 
 function setLanguage(language) {
   const dictionary = translations[language] || translations.sv;
+
+  // Change language, but KEEP the website layout LTR
   document.documentElement.lang = language;
-  document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-  document.body.dir = document.documentElement.dir;
+  document.documentElement.dir = "ltr";
+  document.body.dir = "ltr";
+
+  const main = document.querySelector("main");
+
+  if (main) {
+    main.dir = language === "ar" ? "rtl" : "ltr";
+  }
+
   translationElements.forEach((element) => {
     const value = dictionary[element.dataset.t];
-    if (value !== undefined) element.innerHTML = value;
+    if (value !== undefined) {
+      element.innerHTML = value;
+    }
   });
+
   languageButtons.forEach((button) => {
     const active = button.dataset.lang === language;
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", String(active));
   });
+
   localStorage.setItem("sglang", language);
 }
 
@@ -59,14 +72,51 @@ languageButtons.forEach((button) => button.addEventListener("click", () => setLa
 setLanguage(localStorage.getItem("sglang") || "sv");
 
 if (menuButton && navigation) {
-  menuButton.addEventListener("click", () => {
+
+  // Open / close menu
+  menuButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+
     const open = navigation.classList.toggle("open");
+
     menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.textContent = open ? "×" : "☰";
   });
-  navigation.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
-    navigation.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-  }));
+
+  // Close when clicking a navigation link
+  navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    });
+  });
+
+  // Close when clicking anywhere outside the menu
+  document.addEventListener("click", (event) => {
+    const clickedInsideMenu = navigation.contains(event.target);
+    const clickedMenuButton = menuButton.contains(event.target);
+
+    if (
+      navigation.classList.contains("open") &&
+      !clickedInsideMenu &&
+      !clickedMenuButton
+    ) {
+      navigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }
+  });
+
+  // Close menu when pressing Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navigation.classList.contains("open")) {
+      navigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+      menuButton.focus();
+    }
+  });
 }
 
 productLinks.forEach((link) => link.addEventListener("click", () => {
