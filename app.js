@@ -1,332 +1,666 @@
 "use strict";
 
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
+
 const translations = {
   sv: {
-    origin: "Ursprung", craft: "Hantverket", oil: "Vår olja", oilTitle: "Premium Extra Virgin", collection: "Kollektion", contactNav: "Kontakta oss", buy: "Köp nu",
-    kicker: "Kallpressad extra virgin olivolja", title: "Ett levande<br>arv.", heroText: "Uråldriga syriska olivlundar. Buteljerat guld för den skandinaviska smakpaletten. En tyst lyx, skapad av århundraden.", discover: "Upptäck oljan",
-    originTitle: "I varje oliv finns en berättelse.", originText: "Syrian Gold föds ur respekt för Syriens olivtradition. Varje skörd bär spår av jorden, solen och omsorgen från generationer.", quote: "“Äkta lyx handlar om ursprung, tid och omsorg.”",
-    craftTitle: "Från jord till flaska", craftLead: "En oförändrad tradition som möter modern precision.", step1: "Handplockat", step1t: "Oliverna skördas varsamt för hand för att skydda frukten och bevara dess naturliga karaktär.", step2: "Mekaniskt pressat", step2t: "Kontrollerad temperatur och mekaniska metoder skapar en ren, tydlig och balanserad smak.", step3: "Varsamt buteljerat", step3t: "Oljan får vila naturligt och buteljeras med omsorg för att skydda arom, färg och kvalitet.",
-    oilText: "En balanserad signaturolja med grön friskhet, mjuk fruktighet och ett elegant pepprigt avslut.", taste: "Smak", tasteV: "Gräsig, fruktig och elegant pepprig.", source: "Ursprung", sourceV: "Syrisk olivtradition, skapad för den skandinaviska marknaden.", serve: "Passar till", serveV: "Bröd, sallader, grillade rätter, marinader och servering.",
-    shopTitle: "Fyra storlekar. Samma guld.", shopLead: "Välj formatet som passar ditt bord, ditt kök eller din familj.", price: "Fråga om pris", popular: "Mest populär",
-    contact: "Beställning och kontakt", contactTitle: "Bli en del av historien", contactText: "Skicka en förfrågan om priser, produktlansering, återförsäljning eller grossistmöjligheter.", name: "Namn", email: "E-post", interest: "Jag är intresserad av", selectSize: "Välj storlek", message: "Meddelande", send: "Skicka förfrågan", sending: "Skickar..."
+    origin: "Ursprung",
+    craft: "Hantverket",
+    oil: "Vår olja",
+    oilTitle: "Premium Extra Virgin",
+    collection: "Kollektion",
+    contactNav: "Kontakta oss",
+    buy: "Köp nu",
+
+    kicker: "Kallpressad extra virgin olivolja",
+    title: "Ett levande<br>arv.",
+    heroText:
+      "Uråldriga syriska olivlundar. Buteljerat guld för den skandinaviska smakpaletten. En tyst lyx, skapad av århundraden.",
+    discover: "Upptäck oljan",
+
+    originTitle: "I varje oliv finns en berättelse.",
+    originText:
+      "Syrian Gold föds ur respekt för Syriens olivtradition. Varje skörd bär spår av jorden, solen och omsorgen från generationer.",
+    quote:
+      "“Äkta lyx handlar om ursprung, tid och omsorg.”",
+
+    craftTitle: "Från jord till flaska",
+    craftLead:
+      "En oförändrad tradition som möter modern precision.",
+
+    step1: "Handplockat",
+    step1t:
+      "Oliverna skördas varsamt för hand för att skydda frukten och bevara dess naturliga karaktär.",
+
+    step2: "Mekaniskt pressat",
+    step2t:
+      "Kontrollerad temperatur och mekaniska metoder skapar en ren, tydlig och balanserad smak.",
+
+    step3: "Varsamt buteljerat",
+    step3t:
+      "Oljan får vila naturligt och buteljeras med omsorg för att skydda arom, färg och kvalitet.",
+
+    oilText:
+      "En balanserad signaturolja med grön friskhet, mjuk fruktighet och ett elegant pepprigt avslut.",
+
+    taste: "Smak",
+    tasteV: "Gräsig, fruktig och elegant pepprig.",
+
+    source: "Ursprung",
+    sourceV:
+      "Syrisk olivtradition, skapad för den skandinaviska marknaden.",
+
+    serve: "Passar till",
+    serveV:
+      "Bröd, sallader, grillade rätter, marinader och servering.",
+
+    shopTitle: "Fyra storlekar. Samma guld.",
+    shopLead:
+      "Välj formatet som passar ditt bord, ditt kök eller din familj.",
+
+    price: "Fråga om pris",
+    popular: "Mest populär",
+
+    contact: "Beställning och kontakt",
+    contactTitle: "Bli en del av historien",
+    contactText:
+      "Skicka en förfrågan om priser, produktlansering, återförsäljning eller grossistmöjligheter.",
+
+    name: "Namn",
+    email: "E-post",
+    interest: "Jag är intresserad av",
+    selectSize: "Välj storlek",
+    message: "Meddelande",
+    send: "Skicka förfrågan",
+    sending: "Skickar..."
   },
 
   en: {
-    origin: "Origin", craft: "Craft", oil: "Our oil", oilTitle: "Premium Extra Virgin", collection: "Collection", contactNav: "Contact us", buy: "Buy now",
-    kicker: "Cold-pressed extra virgin olive oil", title: "A living<br>legacy.", heroText: "Ancient Syrian olive groves. Bottled gold for the Scandinavian palate. Quiet luxury, shaped by centuries.", discover: "Discover the oil",
-    originTitle: "Every olive carries a story.", originText: "Syrian Gold begins with respect for Syria's olive tradition. Every harvest carries the land, the sun and the care of generations.", quote: "“True luxury is about origin, time and care.”",
-    craftTitle: "From soil to bottle", craftLead: "An enduring tradition meets modern precision.", step1: "Hand picked", step1t: "The olives are harvested gently by hand to protect the fruit and preserve its natural character.", step2: "Mechanically pressed", step2t: "Controlled temperature and mechanical methods create a clean, distinctive and balanced taste.", step3: "Carefully bottled", step3t: "The oil rests naturally and is bottled with care to protect its aroma, colour and quality.",
-    oilText: "A balanced signature oil with green freshness, soft fruit and an elegant peppery finish.", taste: "Taste", tasteV: "Green, fruity and elegantly peppery.", source: "Origin", sourceV: "Syrian olive heritage, created for the Scandinavian market.", serve: "Perfect for", serveV: "Bread, salads, grilled dishes, marinades and finishing.",
-    shopTitle: "Four sizes. The same gold.", shopLead: "Choose the size made for your table, your kitchen or your family.", price: "Request price", popular: "Most popular",
-    contact: "Orders and contact", contactTitle: "Become part of the story", contactText: "Send an enquiry about prices, product availability, retail partnerships or wholesale opportunities.", name: "Name", email: "Email", interest: "I am interested in", selectSize: "Choose a size", message: "Message", send: "Send enquiry", sending: "Sending..."
+    origin: "Origin",
+    craft: "Craft",
+    oil: "Our oil",
+    oilTitle: "Premium Extra Virgin",
+    collection: "Collection",
+    contactNav: "Contact us",
+    buy: "Buy now",
+
+    kicker: "Cold-pressed extra virgin olive oil",
+    title: "A living<br>legacy.",
+    heroText:
+      "Ancient Syrian olive groves. Bottled gold for the Scandinavian palate. Quiet luxury, shaped by centuries.",
+    discover: "Discover the oil",
+
+    originTitle: "Every olive carries a story.",
+    originText:
+      "Syrian Gold begins with respect for Syria's olive tradition. Every harvest carries the land, the sun and the care of generations.",
+    quote:
+      "“True luxury is about origin, time and care.”",
+
+    craftTitle: "From soil to bottle",
+    craftLead:
+      "An enduring tradition meets modern precision.",
+
+    step1: "Hand picked",
+    step1t:
+      "The olives are harvested gently by hand to protect the fruit and preserve its natural character.",
+
+    step2: "Mechanically pressed",
+    step2t:
+      "Controlled temperature and mechanical methods create a clean, distinctive and balanced taste.",
+
+    step3: "Carefully bottled",
+    step3t:
+      "The oil rests naturally and is bottled with care to protect its aroma, colour and quality.",
+
+    oilText:
+      "A balanced signature oil with green freshness, soft fruit and an elegant peppery finish.",
+
+    taste: "Taste",
+    tasteV: "Green, fruity and elegantly peppery.",
+
+    source: "Origin",
+    sourceV:
+      "Syrian olive heritage, created for the Scandinavian market.",
+
+    serve: "Perfect for",
+    serveV:
+      "Bread, salads, grilled dishes, marinades and finishing.",
+
+    shopTitle: "Four sizes. The same gold.",
+    shopLead:
+      "Choose the size made for your table, your kitchen or your family.",
+
+    price: "Request price",
+    popular: "Most popular",
+
+    contact: "Orders and contact",
+    contactTitle: "Become part of the story",
+    contactText:
+      "Send an enquiry about prices, product availability, retail partnerships or wholesale opportunities.",
+
+    name: "Name",
+    email: "Email",
+    interest: "I am interested in",
+    selectSize: "Choose a size",
+    message: "Message",
+    send: "Send enquiry",
+    sending: "Sending..."
   },
 
   ar: {
-    origin: "الأصل", craft: "الحرفة", oil: "زيتنا", oilTitle: "زيت زيتون بكر ممتاز", collection: "المجموعة", contactNav: "تواصل معنا", buy: "اشتر الآن",
-    kicker: "زيت زيتون بكر ممتاز معصور على البارد", title: "إرث<br>نابض.", heroText: "بساتين زيتون سورية عريقة. ذهب معبأ للذائقة الاسكندنافية. فخامة هادئة صنعتها القرون.", discover: "اكتشف الزيت",
-    originTitle: "في كل زيتونة حكاية.", originText: "تبدأ سوريان غولد باحترام عميق لتقاليد الزيتون السورية. يحمل كل موسم حصاد أثر الأرض والشمس وعناية الأجيال.", quote: "«الفخامة الحقيقية هي الأصل والوقت والعناية.»",
-    craftTitle: "من الأرض إلى العبوة", craftLead: "تقاليد راسخة تلتقي بالدقة الحديثة.", step1: "قطاف يدوي", step1t: "تُقطف حبات الزيتون يدوياً بعناية لحماية الثمرة والحفاظ على طابعها الطبيعي.", step2: "عصر ميكانيكي", step2t: "تمنح الحرارة المضبوطة والوسائل الميكانيكية الزيت مذاقاً نقياً ومميزاً ومتوازناً.", step3: "تعبئة بعناية", step3t: "يستريح الزيت طبيعياً ثم يُعبأ بعناية لحماية الرائحة واللون والجودة.",
-    oilText: "زيت متوازن بنضارة خضراء وفاكهية ناعمة ونهاية فلفلية أنيقة.", taste: "المذاق", tasteV: "أخضر وفاكهي مع لمسة فلفلية أنيقة.", source: "الأصل", sourceV: "تراث الزيتون السوري بروح تناسب السوق الاسكندنافية.", serve: "مثالي مع", serveV: "الخبز والسلطات والمشاوي والتتبيلات واللمسة الأخيرة.",
-    shopTitle: "أربعة أحجام. الذهب نفسه.", shopLead: "اختر الحجم المناسب لمائدتك أو مطبخك أو عائلتك.", price: "اطلب السعر", popular: "الأكثر طلباً",
-    contact: "الطلبات والتواصل", contactTitle: "كن جزءاً من الحكاية", contactText: "أرسل استفسارك عن الأسعار أو توفر المنتجات أو فرص البيع بالتجزئة والجملة.", name: "الاسم", email: "البريد الإلكتروني", interest: "أنا مهتم بـ", selectSize: "اختر الحجم", message: "الرسالة", send: "إرسال الطلب", sending: "جارٍ الإرسال..."
+    origin: "الأصل",
+    craft: "الحرفة",
+    oil: "زيتنا",
+    oilTitle: "زيت زيتون بكر ممتاز",
+    collection: "المجموعة",
+    contactNav: "تواصل معنا",
+    buy: "اشتر الآن",
+
+    kicker: "زيت زيتون بكر ممتاز معصور على البارد",
+    title: "إرث<br>نابض.",
+    heroText:
+      "بساتين زيتون سورية عريقة. ذهب معبأ للذائقة الاسكندنافية. فخامة هادئة صنعتها القرون.",
+    discover: "اكتشف الزيت",
+
+    originTitle: "في كل زيتونة حكاية.",
+    originText:
+      "تبدأ سوريان غولد باحترام عميق لتقاليد الزيتون السورية. يحمل كل موسم حصاد أثر الأرض والشمس وعناية الأجيال.",
+    quote:
+      "«الفخامة الحقيقية هي الأصل والوقت والعناية.»",
+
+    craftTitle: "من الأرض إلى العبوة",
+    craftLead:
+      "تقاليد راسخة تلتقي بالدقة الحديثة.",
+
+    step1: "قطاف يدوي",
+    step1t:
+      "تُقطف حبات الزيتون يدوياً بعناية لحماية الثمرة والحفاظ على طابعها الطبيعي.",
+
+    step2: "عصر ميكانيكي",
+    step2t:
+      "تمنح الحرارة المضبوطة والوسائل الميكانيكية الزيت مذاقاً نقياً ومميزاً ومتوازناً.",
+
+    step3: "تعبئة بعناية",
+    step3t:
+      "يستريح الزيت طبيعياً ثم يُعبأ بعناية لحماية الرائحة واللون والجودة.",
+
+    oilText:
+      "زيت متوازن بنضارة خضراء وفاكهية ناعمة ونهاية فلفلية أنيقة.",
+
+    taste: "المذاق",
+    tasteV:
+      "أخضر وفاكهي مع لمسة فلفلية أنيقة.",
+
+    source: "الأصل",
+    sourceV:
+      "تراث الزيتون السوري بروح تناسب السوق الاسكندنافية.",
+
+    serve: "مثالي مع",
+    serveV:
+      "الخبز والسلطات والمشاوي والتتبيلات واللمسة الأخيرة.",
+
+    shopTitle: "أربعة أحجام. الذهب نفسه.",
+    shopLead:
+      "اختر الحجم المناسب لمائدتك أو مطبخك أو عائلتك.",
+
+    price: "اطلب السعر",
+    popular: "الأكثر طلباً",
+
+    contact: "الطلبات والتواصل",
+    contactTitle: "كن جزءاً من الحكاية",
+    contactText:
+      "أرسل استفسارك عن الأسعار أو توفر المنتجات أو فرص البيع بالتجزئة والجملة.",
+
+    name: "الاسم",
+    email: "البريد الإلكتروني",
+    interest: "أنا مهتم بـ",
+    selectSize: "اختر الحجم",
+    message: "الرسالة",
+    send: "إرسال الطلب",
+    sending: "جارٍ الإرسال..."
   }
 };
 
 
-/* =========================
+/* =========================================================
    ELEMENTS
-========================= */
+========================================================= */
 
-const languageButtons = document.querySelectorAll("[data-lang]");
-const translationElements = document.querySelectorAll("[data-t]");
+const languageButtons =
+  document.querySelectorAll("[data-lang]");
 
-const languageToggle = document.querySelector(".language-toggle");
-const languageMenu = document.querySelector(".language-menu");
+const translationElements =
+  document.querySelectorAll("[data-t]");
 
-const menuButton = document.querySelector(".menu");
-const navigation = document.querySelector("nav");
+const languageToggle =
+  document.querySelector(".language-toggle");
 
-const sizeSelect = document.querySelector("#size");
-const productLinks = document.querySelectorAll("[data-size]");
-const contactForm = document.querySelector('form[name="order"]');
+const languageMenu =
+  document.querySelector(".language-menu");
+
+const menuButton =
+  document.querySelector(".menu");
+
+const navigation =
+  document.querySelector("nav");
+
+const sizeSelect =
+  document.querySelector("#size");
+
+const productLinks =
+  document.querySelectorAll("[data-size]");
+
+const contactForm =
+  document.querySelector('form[name="order"]');
+
+const brand =
+  document.querySelector(".brand");
+
+const backToTop =
+  document.querySelector(".back-to-top");
 
 
-/* =========================
+/* =========================================================
    LANGUAGE
-========================= */
+========================================================= */
 
 function setLanguage(language) {
 
-  const dictionary = translations[language] || translations.sv;
+  const currentLanguage =
+    translations[language]
+      ? language
+      : "sv";
 
-  /* Keep website layout LTR */
-  document.documentElement.lang = language;
-  document.documentElement.dir = "ltr";
-  document.body.dir = "ltr";
+  const dictionary =
+    translations[currentLanguage];
 
-  const main = document.querySelector("main");
+  /*
+    Keep the overall website LTR.
+    Arabic content itself is handled by CSS.
+  */
 
-  if (main) {
-    main.dir = language === "ar" ? "rtl" : "ltr";
-  }
+  document.documentElement.lang =
+    currentLanguage;
 
-  /* Translate all elements */
+  document.documentElement.dir =
+    "ltr";
+
+  document.body.dir =
+    "ltr";
+
+
+  /* -----------------------------------------
+     Translate elements
+  ----------------------------------------- */
+
   translationElements.forEach((element) => {
 
-    const value = dictionary[element.dataset.t];
+    const key =
+      element.dataset.t;
 
-    if (value !== undefined) {
-      element.innerHTML = value;
+    if (
+      key &&
+      dictionary[key] !== undefined
+    ) {
+      element.innerHTML =
+        dictionary[key];
     }
 
   });
 
 
-  /* Update active language */
+  /* -----------------------------------------
+     Arabic main direction
+  ----------------------------------------- */
+
+  const main =
+    document.querySelector("main");
+
+  if (main) {
+    main.dir =
+      currentLanguage === "ar"
+        ? "rtl"
+        : "ltr";
+  }
+
+
+  /* -----------------------------------------
+     Active language
+  ----------------------------------------- */
+
   languageButtons.forEach((button) => {
 
-    const active = button.dataset.lang === language;
+    const isActive =
+      button.dataset.lang === currentLanguage;
 
-    button.classList.toggle("active", active);
+    button.classList.toggle(
+      "active",
+      isActive
+    );
 
     button.setAttribute(
       "aria-pressed",
-      String(active)
+      String(isActive)
     );
 
   });
 
 
-  /* Save language */
-  localStorage.setItem("sglang", language);
+  /* -----------------------------------------
+     Save language
+  ----------------------------------------- */
+
+  localStorage.setItem(
+    "sglang",
+    currentLanguage
+  );
 
 
-  /* Close language menu after selection */
+  /* -----------------------------------------
+     Close language menu
+  ----------------------------------------- */
+
   if (languageMenu) {
     languageMenu.classList.remove("open");
   }
 
   if (languageToggle) {
-    languageToggle.setAttribute("aria-expanded", "false");
+    languageToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
   }
-
 }
 
 
-/* =========================
+/* =========================================================
    LANGUAGE BUTTONS
-========================= */
+========================================================= */
 
 languageButtons.forEach((button) => {
 
-  button.addEventListener("click", () => {
+  button.addEventListener(
+    "click",
+    () => {
 
-    setLanguage(button.dataset.lang);
+      setLanguage(
+        button.dataset.lang
+      );
 
-  });
+    }
+  );
 
 });
 
 
-/* Load saved language */
+/* =========================================================
+   LOAD SAVED LANGUAGE
+========================================================= */
 
 setLanguage(
   localStorage.getItem("sglang") || "sv"
 );
 
 
-/* =========================
+/* =========================================================
    LANGUAGE DROPDOWN
-========================= */
+========================================================= */
 
-if (languageToggle && languageMenu) {
+if (
+  languageToggle &&
+  languageMenu
+) {
 
-  languageToggle.addEventListener("click", (event) => {
+  languageToggle.addEventListener(
+    "click",
+    (event) => {
 
-    event.stopPropagation();
+      event.stopPropagation();
 
-    const isOpen =
-      languageMenu.classList.toggle("open");
-
-    languageToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-
-  });
-
-
-  /* Close when clicking outside */
-
-  document.addEventListener("click", (event) => {
-
-    if (!event.target.closest(".language-picker")) {
-
-      languageMenu.classList.remove("open");
+      const isOpen =
+        languageMenu.classList.toggle(
+          "open"
+        );
 
       languageToggle.setAttribute(
         "aria-expanded",
-        "false"
+        String(isOpen)
       );
 
     }
-
-  });
-
-
-  /* Close with Escape */
-
-  document.addEventListener("keydown", (event) => {
-
-    if (
-      event.key === "Escape" &&
-      languageMenu.classList.contains("open")
-    ) {
-
-      languageMenu.classList.remove("open");
-
-      languageToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      languageToggle.focus();
-
-    }
-
-  });
-
-}
+  );
 
 
-/* =========================
-   MOBILE MENU
-========================= */
+  /* Click outside */
 
-if (menuButton && navigation) {
+  document.addEventListener(
+    "click",
+    (event) => {
 
-  menuButton.addEventListener("click", (event) => {
+      if (
+        !event.target.closest(
+          ".language-picker"
+        )
+      ) {
 
-    event.stopPropagation();
+        languageMenu.classList.remove(
+          "open"
+        );
 
-    const open =
-      navigation.classList.toggle("open");
+        languageToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      String(open)
-    );
-
-    menuButton.textContent =
-      open ? "×" : "☰";
-
-  });
-
-
-  /* Close menu when clicking a link */
-
-  navigation.querySelectorAll("a").forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      navigation.classList.remove("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.textContent = "☰";
-
-    });
-
-  });
-
-
-  /* Close menu outside */
-
-  document.addEventListener("click", (event) => {
-
-    const clickedInsideMenu =
-      navigation.contains(event.target);
-
-    const clickedMenuButton =
-      menuButton.contains(event.target);
-
-    if (
-      navigation.classList.contains("open") &&
-      !clickedInsideMenu &&
-      !clickedMenuButton
-    ) {
-
-      navigation.classList.remove("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.textContent = "☰";
+      }
 
     }
-
-  });
+  );
 
 
   /* Escape */
 
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (
-      event.key === "Escape" &&
-      navigation.classList.contains("open")
-    ) {
+      if (
+        event.key === "Escape" &&
+        languageMenu.classList.contains(
+          "open"
+        )
+      ) {
 
-      navigation.classList.remove("open");
+        languageMenu.classList.remove(
+          "open"
+        );
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+        languageToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-      menuButton.textContent = "☰";
+        languageToggle.focus();
 
-      menuButton.focus();
+      }
 
     }
-
-  });
+  );
 
 }
 
 
-/* =========================
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+if (
+  menuButton &&
+  navigation
+) {
+
+  menuButton.addEventListener(
+    "click",
+    (event) => {
+
+      event.stopPropagation();
+
+      const isOpen =
+        navigation.classList.toggle(
+          "open"
+        );
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent =
+        isOpen ? "×" : "☰";
+
+    }
+  );
+
+
+  /* Close when clicking navigation link */
+
+  navigation
+    .querySelectorAll("a")
+    .forEach((link) => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          navigation.classList.remove(
+            "open"
+          );
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.textContent =
+            "☰";
+
+        }
+      );
+
+    });
+
+
+  /* Close when clicking outside */
+
+  document.addEventListener(
+    "click",
+    (event) => {
+
+      const insideNavigation =
+        navigation.contains(event.target);
+
+      const insideButton =
+        menuButton.contains(event.target);
+
+      if (
+        navigation.classList.contains(
+          "open"
+        ) &&
+        !insideNavigation &&
+        !insideButton
+      ) {
+
+        navigation.classList.remove(
+          "open"
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent =
+          "☰";
+
+      }
+
+    }
+  );
+
+
+  /* Escape */
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Escape" &&
+        navigation.classList.contains(
+          "open"
+        )
+      ) {
+
+        navigation.classList.remove(
+          "open"
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent =
+          "☰";
+
+        menuButton.focus();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
    PRODUCT LINKS
-========================= */
+========================================================= */
 
 productLinks.forEach((link) => {
 
-  link.addEventListener("click", () => {
+  link.addEventListener(
+    "click",
+    () => {
 
-    if (sizeSelect) {
-      sizeSelect.value = link.dataset.size;
+      if (sizeSelect) {
+
+        sizeSelect.value =
+          link.dataset.size;
+
+      }
+
     }
-
-  });
+  );
 
 });
 
 
-/* =========================
-   SCROLL ANIMATIONS
-========================= */
+/* =========================================================
+   SCROLL REVEAL ANIMATIONS
+========================================================= */
 
 const animatedElements =
   document.querySelectorAll(
     ".reveal, .reveal-left, .reveal-right"
   );
 
-if ("IntersectionObserver" in window) {
+
+if (
+  "IntersectionObserver" in window
+) {
 
   const observer =
     new IntersectionObserver(
@@ -334,9 +668,13 @@ if ("IntersectionObserver" in window) {
 
         entries.forEach((entry) => {
 
-          if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting
+          ) {
 
-            entry.target.classList.add("visible");
+            entry.target.classList.add(
+              "visible"
+            );
 
             observer.unobserve(
               entry.target
@@ -349,27 +687,38 @@ if ("IntersectionObserver" in window) {
       },
       {
         threshold: 0.14,
-        rootMargin: "0px 0px -45px 0px"
+        rootMargin:
+          "0px 0px -45px 0px"
       }
     );
 
+
   animatedElements.forEach(
-    (element) => observer.observe(element)
+    (element) => {
+
+      observer.observe(element);
+
+    }
   );
 
 } else {
 
   animatedElements.forEach(
-    (element) =>
-      element.classList.add("visible")
+    (element) => {
+
+      element.classList.add(
+        "visible"
+      );
+
+    }
   );
 
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT FORM
-========================= */
+========================================================= */
 
 if (contactForm) {
 
@@ -383,7 +732,8 @@ if (contactForm) {
         );
 
       const language =
-        localStorage.getItem("sglang") || "sv";
+        localStorage.getItem("sglang") ||
+        "sv";
 
       if (button) {
 
@@ -395,6 +745,148 @@ if (contactForm) {
       }
 
     }
+  );
+
+}
+
+
+/* =========================================================
+   LOGO + PICTURE SCROLL EFFECT
+========================================================= */
+
+if (brand) {
+
+  let ticking = false;
+
+  function updateBrandPosition() {
+
+    const scrollY =
+      window.scrollY || window.pageYOffset;
+
+    /*
+      Logo moves slightly down while scrolling.
+      The image is inside .brand, so both
+      logo + picture move together.
+    */
+
+    const movement =
+      scrollY * 0.18;
+
+    brand.style.transform =
+      `translate3d(0, ${movement}px, 0)`;
+
+    ticking = false;
+  }
+
+
+  function requestBrandUpdate() {
+
+    if (!ticking) {
+
+      window.requestAnimationFrame(
+        updateBrandPosition
+      );
+
+      ticking = true;
+
+    }
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    requestBrandUpdate,
+    {
+      passive: true
+    }
+  );
+
+
+  window.addEventListener(
+    "resize",
+    requestBrandUpdate,
+    {
+      passive: true
+    }
+  );
+
+
+  updateBrandPosition();
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+if (backToTop) {
+
+  function updateBackToTop() {
+
+    if (
+      window.scrollY > 400
+    ) {
+
+      backToTop.classList.add(
+        "show"
+      );
+
+    } else {
+
+      backToTop.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    updateBackToTop,
+    {
+      passive: true
+    }
+  );
+
+
+  backToTop.addEventListener(
+    "click",
+    (event) => {
+
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+
+  updateBackToTop();
+}
+
+
+/* =========================================================
+   BACK TO TOP — ONLY ↑
+========================================================= */
+
+if (backToTop) {
+
+  backToTop.innerHTML = "↑";
+
+  backToTop.setAttribute(
+    "aria-label",
+    "Back to top"
+  );
+
+  backToTop.setAttribute(
+    "title",
+    "Back to top"
   );
 
 }

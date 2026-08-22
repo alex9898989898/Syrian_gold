@@ -46,6 +46,13 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 /* =========================================================
    HEADER
 ========================================================= */
@@ -54,21 +61,16 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-
   z-index: 2000;
-
   width: 100%;
   height: 90px;
-
   padding: 0 6%;
 
   display: flex;
   align-items: center;
-
   gap: 32px;
 
   color: #fff;
-
   direction: ltr !important;
   text-align: left;
 
@@ -90,12 +92,16 @@ header * {
 .brand {
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   flex-shrink: 0;
 
   direction: ltr !important;
+
+  will-change: transform;
+  transition: transform 0.08s linear;
+
+  filter:
+    drop-shadow(0 3px 7px rgba(0, 0, 0, 0.7));
 }
 
 .brand-image {
@@ -103,10 +109,11 @@ header * {
   height: 38px;
 
   object-fit: contain;
-
   display: block;
-
   flex-shrink: 0;
+
+  will-change: transform;
+  transition: transform 0.08s linear;
 }
 
 .logo {
@@ -114,13 +121,10 @@ header * {
 
   font-size: 23px;
   line-height: 1;
-
   letter-spacing: 0.17em;
 
   text-align: left;
-
   color: #fff;
-
   white-space: nowrap;
 
   direction: ltr !important;
@@ -132,11 +136,9 @@ header * {
   color: var(--gold-light);
 
   font: 500 8px Inter, sans-serif;
-
   letter-spacing: 0.46em;
 
   text-align: center;
-
   direction: ltr !important;
 }
 
@@ -147,7 +149,6 @@ header * {
 nav {
   display: flex;
   align-items: center;
-
   gap: 32px;
 
   margin-left: auto;
@@ -157,11 +158,8 @@ nav {
 
 nav a {
   font-size: 11px;
-
   text-transform: uppercase;
-
   letter-spacing: 0.12em;
-
   white-space: nowrap;
 
   color: #fff;
@@ -181,66 +179,125 @@ nav a:hover {
 
 .language-picker {
   position: relative;
+  z-index: 2200;
 
-  z-index: 2100;
-
-  margin-left: 4px;
+  display: flex;
+  align-items: center;
 
   flex-shrink: 0;
+  margin: 0;
 
   direction: ltr !important;
 }
 
 .language-toggle {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   padding: 0;
 
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(213, 155, 66, 0.55);
+  border-radius: 50%;
 
-  background: rgba(0, 0, 0, 0.18);
+  outline: none;
 
-  color: #fff;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 50, 31, 0.95),
+      rgba(11, 21, 11, 0.88)
+    );
 
-  font-size: 18px;
+  color: #f0d39a;
+  font-size: 17px;
+  line-height: 1;
 
   cursor: pointer;
 
-  direction: ltr !important;
+  appearance: none;
+  -webkit-appearance: none;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease;
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .language-toggle:hover {
-  background: rgba(0, 0, 0, 0.4);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(50, 64, 41, 0.98),
+      rgba(18, 30, 17, 0.96)
+    );
 
-  border-color: rgba(255, 255, 255, 0.75);
+  border-color: var(--gold-light);
+  color: #f6dca8;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 0 0 3px rgba(190, 122, 20, 0.08);
+
+  transform: translateY(-1px);
 }
+
+.language-toggle:focus,
+.language-toggle:focus-visible {
+  outline: none;
+  border-color: var(--gold-light);
+}
+
+.language-toggle:active {
+  transform: scale(0.96);
+}
+
+/* =========================================================
+   LANGUAGE DROPDOWN
+========================================================= */
 
 .language-menu {
   position: absolute;
-
-  top: calc(100% + 8px);
+  top: calc(100% + 10px);
   right: 0;
+  z-index: 3000;
 
-  min-width: 110px;
+  min-width: 125px;
 
   display: none;
   flex-direction: column;
+  gap: 3px;
 
   padding: 6px;
 
-  background: rgba(11, 21, 11, 0.97);
+  border: 1px solid rgba(213, 155, 66, 0.28);
+  border-radius: 8px;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 37, 22, 0.98),
+      rgba(9, 18, 9, 0.98)
+    );
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   direction: ltr !important;
 }
@@ -251,29 +308,54 @@ nav a:hover {
 
 .language-menu button {
   width: 100%;
+  min-height: 36px;
 
-  padding: 10px 14px;
+  padding: 9px 12px;
 
   border: 0;
+  border-radius: 5px;
+
+  outline: none;
 
   background: transparent;
-
-  color: #fff;
+  color: #eee;
 
   text-align: left;
 
   font-family: Inter, sans-serif;
-
   font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 
   cursor: pointer;
 
+  appearance: none;
+  -webkit-appearance: none;
+
   direction: ltr !important;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.language-menu button:hover,
+.language-menu button:hover {
+  background: rgba(190, 122, 20, 0.16);
+  color: var(--gold-light);
+  transform: translateX(2px);
+}
+
 .language-menu button.active {
   background: var(--gold);
+  color: #fff;
+}
+
+.language-menu button:focus,
+.language-menu button:focus-visible,
+.language-menu button:active {
+  outline: none;
+  box-shadow: none;
 }
 
 /* =========================================================
@@ -289,13 +371,10 @@ nav a:hover {
   border: 0;
 
   background: var(--gold);
-
   color: #fff;
 
   font-size: 11px;
-
   text-transform: uppercase;
-
   letter-spacing: 0.09em;
 
   cursor: pointer;
@@ -310,7 +389,8 @@ nav a:hover {
 .gold:hover {
   background: #d18a1a;
 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.27);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.27);
 
   transform: translateY(-3px);
 }
@@ -323,7 +403,6 @@ nav a:hover {
   display: none;
 
   border: 0;
-
   background: none;
 
   color: #fff;
@@ -331,6 +410,19 @@ nav a:hover {
   cursor: pointer;
 
   direction: ltr !important;
+
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.menu:focus,
+.menu:focus-visible,
+.menu:active {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 /* =========================================================
@@ -341,25 +433,23 @@ nav a:hover {
   position: relative;
 
   height: 100vh;
-
   min-height: 700px;
 
   display: grid;
-
   place-items: center;
 
-  background: url("assets/hero.jpg") center / cover no-repeat;
+  background:
+    url("assets/hero.jpg")
+    center / cover no-repeat;
 
   color: #fff;
 
   text-align: center;
-
   direction: ltr !important;
 }
 
 .overlay {
   position: absolute;
-
   inset: 0;
 
   background:
@@ -386,7 +476,6 @@ nav a:hover {
   margin: 35px 0 25px;
 
   font-size: clamp(62px, 8vw, 110px);
-
   line-height: 0.9;
 }
 
@@ -429,13 +518,11 @@ html[lang="ar"] .hero-copy {
 
 html[lang="ar"] .hero h1 {
   direction: rtl !important;
-
   text-align: center;
 }
 
 html[lang="ar"] .hero-copy span {
   direction: rtl !important;
-
   text-align: center;
 }
 
@@ -461,7 +548,6 @@ html[lang="ar"] .contact h2,
 html[lang="ar"] .contact p,
 html[lang="ar"] .contact label {
   direction: rtl !important;
-
   text-align: right;
 }
 
@@ -481,14 +567,12 @@ html[lang="ar"] .contact label {
 
 .photo {
   min-height: 700px;
-
   overflow: hidden;
 }
 
 .photo img {
   width: 100%;
   height: 100%;
-
   min-height: 700px;
 
   object-fit: cover;
@@ -507,9 +591,7 @@ html[lang="ar"] .contact label {
   padding: 11% 13%;
 
   display: flex;
-
   justify-content: center;
-
   flex-direction: column;
 }
 
@@ -519,13 +601,11 @@ html[lang="ar"] .contact label {
   margin: 24px 0;
 
   font-size: clamp(45px, 5vw, 70px);
-
   line-height: 1.04;
 }
 
 .copy > p {
   color: var(--muted);
-
   line-height: 1.85;
 }
 
@@ -547,11 +627,9 @@ blockquote {
 
 html[lang="ar"] blockquote {
   padding-left: 0;
-
   padding-right: 24px;
 
   border-left: 0;
-
   border-right: 1px solid #ad843d;
 
   text-align: right;
@@ -620,7 +698,6 @@ html[lang="ar"] blockquote {
   color: var(--muted);
 
   font-size: 13px;
-
   line-height: 1.75;
 }
 
@@ -658,13 +735,8 @@ dd {
   color: var(--muted);
 
   font-size: 13px;
-
   line-height: 1.7;
 }
-
-/* =========================================================
-   ARABIC PRODUCT DETAILS
-========================================================= */
 
 html[lang="ar"] dl div {
   direction: rtl !important;
@@ -712,7 +784,8 @@ html[lang="ar"] dd {
 }
 
 .products article:hover {
-  box-shadow: 0 25px 55px rgba(24, 35, 21, 0.14);
+  box-shadow:
+    0 25px 55px rgba(24, 35, 21, 0.14);
 
   transform: translateY(-9px);
 }
@@ -725,31 +798,25 @@ html[lang="ar"] dd {
   position: absolute;
 
   top: 0;
-
   right: 0;
 
   padding: 8px;
 
   background: var(--gold);
-
   color: #fff;
 
   font-size: 8px;
-
   font-style: normal;
 }
 
 .pack {
   width: 102px;
-
   height: 250px;
 
   margin: 30px auto;
 
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 
   border-radius: 23px 23px 11px 11px;
@@ -782,7 +849,6 @@ html[lang="ar"] dd {
 
 .pack.tin {
   width: 145px;
-
   height: 220px;
 
   border-radius: 7px;
@@ -790,7 +856,6 @@ html[lang="ar"] dd {
 
 .pack.big {
   width: 158px;
-
   height: 250px;
 }
 
@@ -892,7 +957,6 @@ html[lang="ar"] dd {
 
 /* =========================================================
    FOOTER
-   ALWAYS LTR
 ========================================================= */
 
 .site-footer {
@@ -963,7 +1027,6 @@ html[lang="ar"] dd {
   display: block;
 
   margin-top: 10px;
-
   margin-left: 2px;
 
   color: var(--gold-light);
@@ -1037,9 +1100,7 @@ a.footer-contact-link:hover {
 
 .footer-symbol {
   width: 34px;
-
   height: 34px;
-
   min-width: 34px;
 
   flex: 0 0 34px;
@@ -1068,11 +1129,9 @@ a.footer-contact-link:hover {
   display: block;
 
   width: 14px;
-
   height: 14px;
 
   max-width: 14px;
-
   max-height: 14px;
 
   fill: currentColor;
@@ -1136,42 +1195,94 @@ a.footer-contact-link:hover .footer-symbol {
   direction: ltr !important;
 }
 
+/* =========================================================
+   BACK TO TOP
+   ONLY ↑
+========================================================= */
+
 .back-to-top {
-  display: inline-flex;
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 5000;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  gap: 9px;
+  border: 1px solid rgba(213, 155, 66, 0.55);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 50, 31, 0.96),
+      rgba(11, 21, 11, 0.96)
+    );
 
   color: var(--gold-light);
 
   font-family: Inter, sans-serif !important;
 
-  font-size: 10px;
+  font-size: 22px;
 
-  font-weight: 600;
+  cursor: pointer;
 
-  text-transform: uppercase;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 
-  letter-spacing: 0.14em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
-  direction: ltr !important;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(15px);
 
   transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.back-to-top span {
-  font-size: 15px;
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
 
-  line-height: 1;
+  transform: translateY(0);
 }
 
 .back-to-top:hover {
-  color: #f0b556;
+  border-color: var(--gold-light);
 
-  transform: translateY(-2px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(50, 64, 41, 0.98),
+      rgba(18, 30, 17, 0.98)
+    );
+
+  color: #f6dca8;
+
+  transform: translateY(-4px);
+}
+
+.back-to-top span {
+  display: block;
+
+  font-size: 22px;
+  line-height: 1;
 }
 
 /* =========================================================
@@ -1179,7 +1290,6 @@ a.footer-contact-link:hover .footer-symbol {
 ========================================================= */
 
 @media (max-width: 1000px) {
-
   header {
     gap: 18px;
   }
@@ -1207,9 +1317,7 @@ a.footer-contact-link:hover .footer-symbol {
 
 @media (max-width: 800px) {
 
-  /* -------------------------------------------------------
-     HEADER
-  ------------------------------------------------------- */
+  /* HEADER */
 
   header {
     position: absolute;
@@ -1220,17 +1328,14 @@ a.footer-contact-link:hover .footer-symbol {
     width: 100%;
     height: 75px;
 
-    padding: 0 18px;
+    padding: 0;
 
     display: block;
 
     direction: ltr !important;
   }
 
-  /* -------------------------------------------------------
-     LOGO
-     ALWAYS LEFT
-  ------------------------------------------------------- */
+  /* BRAND */
 
   .brand {
     position: absolute;
@@ -1247,8 +1352,6 @@ a.footer-contact-link:hover .footer-symbol {
     gap: 8px;
 
     margin: 0;
-
-    flex-shrink: 0;
 
     direction: ltr !important;
 
@@ -1290,9 +1393,7 @@ a.footer-contact-link:hover .footer-symbol {
     direction: ltr !important;
   }
 
-  /* -------------------------------------------------------
-     NAVIGATION
-  ------------------------------------------------------- */
+  /* NAV */
 
   nav {
     position: absolute;
@@ -1337,16 +1438,12 @@ a.footer-contact-link:hover .footer-symbol {
     direction: ltr !important;
   }
 
-  /* -------------------------------------------------------
-     HAMBURGER
-     FAR RIGHT
-  ------------------------------------------------------- */
+  /* HAMBURGER */
 
   .menu {
     position: absolute;
 
     top: 17px;
-
     right: 5%;
 
     z-index: 2300;
@@ -1354,7 +1451,6 @@ a.footer-contact-link:hover .footer-symbol {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 40px;
@@ -1377,86 +1473,60 @@ a.footer-contact-link:hover .footer-symbol {
 
     direction: ltr !important;
 
-    filter: drop-shadow(0 3px 6px #000);
+    filter:
+      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
   }
 
-  /* -------------------------------------------------------
-     LANGUAGE
-     DIRECTLY LEFT OF HAMBURGER
-  ------------------------------------------------------- */
+  /* LANGUAGE */
 
   .language-picker {
     position: absolute;
 
-    top: 19px;
+    top: 17px;
 
-    right: calc(5% + 48px);
+    right: calc(5% + 50px);
 
     z-index: 2300;
 
-    display: block;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     margin: 0;
 
-    padding: 0;
-
-    flex-shrink: 0;
-
     direction: ltr !important;
 
-    filter: drop-shadow(
-      0 3px 6px rgba(0, 0, 0, 0.8)
-    );
+    filter:
+      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8));
   }
 
   .language-toggle {
-    width: 36px;
-    height: 36px;
-
-    display: grid;
-
-    place-items: center;
-
-    padding: 0;
-
-    border: 1px solid rgba(255, 255, 255, 0.33);
-
-    background: rgba(0, 0, 0, 0.18);
-
-    color: #fff;
+    width: 40px;
+    height: 40px;
 
     font-size: 17px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    direction: ltr !important;
   }
 
   .language-menu {
     position: absolute;
 
-    top: calc(100% + 8px);
-
+    top: 48px;
     right: 0;
 
-    min-width: 110px;
-
-    z-index: 2400;
+    min-width: 120px;
   }
 
-  /* -------------------------------------------------------
-     HIDE DESKTOP BUY BUTTON
-  ------------------------------------------------------- */
+  /* HIDE BUY */
 
   header > .button {
     display: none;
   }
 
-  /* -------------------------------------------------------
-     CONTENT
-  ------------------------------------------------------- */
+  /* CONTENT */
 
   .split {
     grid-template-columns: 1fr;
@@ -1487,9 +1557,7 @@ a.footer-contact-link:hover .footer-symbol {
     padding: 80px 7%;
   }
 
-  /* -------------------------------------------------------
-     FOOTER
-  ------------------------------------------------------- */
+  /* FOOTER */
 
   .footer-content {
     grid-template-columns: 1fr;
@@ -1500,6 +1568,22 @@ a.footer-contact-link:hover .footer-symbol {
   .footer-bottom {
     margin-top: 42px;
   }
+
+  /* BACK TO TOP */
+
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 20px;
+  }
+
+  .back-to-top span {
+    font-size: 20px;
+  }
 }
 
 /* =========================================================
@@ -1508,13 +1592,8 @@ a.footer-contact-link:hover .footer-symbol {
 
 @media (max-width: 580px) {
 
-  /* -------------------------------------------------------
-     LOGO
-  ------------------------------------------------------- */
-
   .brand {
     top: 12px;
-
     left: 4%;
 
     gap: 6px;
@@ -1522,7 +1601,6 @@ a.footer-contact-link:hover .footer-symbol {
 
   .brand-image {
     width: 28px;
-
     height: 28px;
   }
 
@@ -1534,43 +1612,43 @@ a.footer-contact-link:hover .footer-symbol {
     font-size: 7px;
   }
 
-  /* -------------------------------------------------------
-     HAMBURGER
-  ------------------------------------------------------- */
+  /* HAMBURGER */
 
   .menu {
     top: 16px;
-
     right: 4%;
 
     width: 38px;
-
     height: 38px;
 
     font-size: 25px;
   }
 
-  /* -------------------------------------------------------
-     LANGUAGE
-  ------------------------------------------------------- */
+  /* LANGUAGE */
 
   .language-picker {
     top: 18px;
 
     right: calc(4% + 45px);
+
+    width: 34px;
+    height: 34px;
   }
 
   .language-toggle {
     width: 34px;
-
     height: 34px;
 
     font-size: 16px;
   }
 
-  /* -------------------------------------------------------
-     HERO
-  ------------------------------------------------------- */
+  .language-menu {
+    top: 43px;
+
+    min-width: 115px;
+  }
+
+  /* HERO */
 
   .hero {
     min-height: 650px;
@@ -1584,9 +1662,7 @@ a.footer-contact-link:hover .footer-symbol {
     width: 88%;
   }
 
-  /* -------------------------------------------------------
-     SECTIONS
-  ------------------------------------------------------- */
+  /* SECTIONS */
 
   .process,
   .shop {
@@ -1609,9 +1685,7 @@ a.footer-contact-link:hover .footer-symbol {
     padding: 25px;
   }
 
-  /* -------------------------------------------------------
-     FOOTER
-  ------------------------------------------------------- */
+  /* FOOTER */
 
   .site-footer {
     padding: 52px 22px 24px;
@@ -1631,21 +1705,17 @@ a.footer-contact-link:hover .footer-symbol {
 
   .footer-symbol {
     width: 32px;
-
     height: 32px;
 
     min-width: 32px;
-
     flex-basis: 32px;
   }
 
   .footer-symbol svg {
     width: 13px;
-
     height: 13px;
 
     max-width: 13px;
-
     max-height: 13px;
   }
 
@@ -1666,6 +1736,22 @@ a.footer-contact-link:hover .footer-symbol {
 
     direction: ltr !important;
   }
+
+  /* BACK TO TOP */
+
+  .back-to-top {
+    right: 15px;
+    bottom: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 18px;
+  }
+
+  .back-to-top span {
+    font-size: 18px;
+  }
 }
 
 /* =========================================================
@@ -1674,19 +1760,13 @@ a.footer-contact-link:hover .footer-symbol {
 
 @media (max-width: 380px) {
 
-  /* -------------------------------------------------------
-     LOGO
-  ------------------------------------------------------- */
-
   .brand {
     left: 3%;
-
     gap: 5px;
   }
 
   .brand-image {
     width: 25px;
-
     height: 25px;
   }
 
@@ -1702,35 +1782,53 @@ a.footer-contact-link:hover .footer-symbol {
     letter-spacing: 0.35em;
   }
 
-  /* -------------------------------------------------------
-     HAMBURGER
-  ------------------------------------------------------- */
+  /* HAMBURGER */
 
   .menu {
+    top: 19px;
     right: 3%;
 
-    font-size: 23px;
-
     width: 34px;
-
     height: 34px;
+
+    font-size: 23px;
   }
 
-  /* -------------------------------------------------------
-     LANGUAGE
-  ------------------------------------------------------- */
+  /* LANGUAGE */
 
   .language-picker {
+    top: 20px;
+
     right: calc(3% + 40px);
 
-    top: 19px;
+    width: 32px;
+    height: 32px;
   }
 
   .language-toggle {
     width: 32px;
-
     height: 32px;
 
     font-size: 15px;
+  }
+
+  .language-menu {
+    top: 41px;
+
+    min-width: 110px;
+  }
+
+  /* BACK TO TOP */
+
+  .back-to-top {
+    right: 12px;
+    bottom: 12px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .back-to-top span {
+    font-size: 18px;
   }
 }

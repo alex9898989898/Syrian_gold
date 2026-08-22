@@ -1,216 +1,864 @@
 <!doctype html>
 <html lang="sv" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Syrian Gold Olivoli - premium extra virgin olivolja med syriskt ursprung.">
+
+  <meta
+    name="description"
+    content="Syrian Gold Olivoli - premium extra virgin olivolja med syriskt ursprung."
+  >
+
   <title>Syrian Gold | Olivoli</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body id="top">
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
   <header>
+
+    <!-- BRAND -->
     <div class="brand">
-      <img src="assets/logo1.png" alt="Olive branch" class="brand-image">
+
+      <img
+        src="assets/logo1.png"
+        alt="Syrian Gold olive branch"
+        class="brand-image"
+      >
 
       <a class="logo" href="#top">
         SYRIAN GOLD
         <small>OLIVOLI</small>
       </a>
+
     </div>
-    <button class="menu" type="button" aria-label="Oppna meny" aria-expanded="false" aria-controls="main-navigation">☰</button>
-    <nav id="main-navigation" aria-label="Huvudmeny">
-      <a href="#origin" data-t="origin">Ursprung</a>
-      <a href="#craft" data-t="craft">Hantverket</a>
-      <a href="#oil" data-t="oil">Var olja</a>
-      <a href="#shop" data-t="collection">Kollektion</a>
-      <a href="#contact" data-t="contactNav">Kontakta oss</a>
-    </nav>
-<div class="language-picker">
+
+
+    <!-- MOBILE MENU -->
     <button
+      class="menu"
+      type="button"
+      aria-label="Öppna meny"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+    >
+      ☰
+    </button>
+
+
+    <!-- NAVIGATION -->
+    <nav
+      id="main-navigation"
+      aria-label="Huvudmeny"
+    >
+
+      <a href="#origin" data-t="origin">
+        Ursprung
+      </a>
+
+      <a href="#craft" data-t="craft">
+        Hantverket
+      </a>
+
+      <a href="#oil" data-t="oil">
+        Vår olja
+      </a>
+
+      <a href="#shop" data-t="collection">
+        Kollektion
+      </a>
+
+      <a href="#contact" data-t="contactNav">
+        Kontakta oss
+      </a>
+
+    </nav>
+
+
+    <!-- LANGUAGE PICKER -->
+    <div class="language-picker">
+
+      <button
         class="language-toggle"
         type="button"
         aria-label="Choose language"
         aria-expanded="false"
-    >
+      >
         🌐
-    </button>
+      </button>
 
-    <div class="language-menu">
-        <button type="button" data-lang="sv">SV</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="ar">العربية</button>
+      <div class="language-menu">
+
+        <button
+          type="button"
+          data-lang="sv"
+        >
+          SV
+        </button>
+
+        <button
+          type="button"
+          data-lang="en"
+        >
+          EN
+        </button>
+
+        <button
+          type="button"
+          data-lang="ar"
+        >
+          العربية
+        </button>
+
+      </div>
+
     </div>
-</div>
-    <a class="button" href="#shop" data-t="buy">Kop nu</a>
+
+
+    <!-- BUY BUTTON -->
+    <a
+      class="button"
+      href="#shop"
+      data-t="buy"
+    >
+      Köp nu
+    </a>
+
   </header>
 
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
   <main>
-    <section class="hero" id="top">
-      <div class="overlay" aria-hidden="true"></div>
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+    <section
+      class="hero"
+      id="hero"
+    >
+
+      <div
+        class="overlay"
+        aria-hidden="true"
+      ></div>
+
+
       <div class="hero-copy reveal">
 
-        <h1 data-t="title">Ett levande<br>arv.</h1>
-        <span data-t="heroText">Uraldriga syriska olivlundar. Buteljerat guld for den skandinaviska smakpaletten. En tyst lyx, skapad av arhundraden.</span>
-        <a class="gold" href="#oil" data-t="discover">Upptack oljan</a>
+        <h1 data-t="title">
+          Ett levande<br>
+          arv.
+        </h1>
+
+        <span data-t="heroText">
+          Uraldriga syriska olivlundar.
+          Buteljerat guld för den skandinaviska smakpaletten.
+          En tyst lyx, skapad av århundraden.
+        </span>
+
+        <a
+          class="gold"
+          href="#oil"
+          data-t="discover"
+        >
+          Upptäck oljan
+        </a>
+
       </div>
+
     </section>
 
-    <section class="split" id="origin">
-      <div class="photo reveal-left"><img src="assets/harvest.jpg" alt="Olives held in hands" loading="lazy"></div>
+
+    <!-- ===================================================
+         ORIGIN
+    ==================================================== -->
+    <section
+      class="split"
+      id="origin"
+    >
+
+      <div class="photo reveal-left">
+
+        <img
+          src="assets/harvest.jpg"
+          alt="Olives held in hands"
+          loading="lazy"
+        >
+
+      </div>
+
+
       <div class="copy reveal-right">
-        <i>01 / <span data-t="origin">Ursprung</span></i>
-        <h2 data-t="originTitle">I varje oliv finns en berattelse.</h2>
-        <p data-t="originText">Syrian Gold fods ur respekt for Syriens olivtradition. Varje skord bar spar av jorden, solen och omsorgen fran generationer.</p>
-        <blockquote data-t="quote">“Akta lyx handlar om ursprung, tid och omsorg.”</blockquote>
+
+        <i>
+          01 /
+          <span data-t="origin">
+            Ursprung
+          </span>
+        </i>
+
+        <h2 data-t="originTitle">
+          I varje oliv finns en berättelse.
+        </h2>
+
+        <p data-t="originText">
+          Syrian Gold föds ur respekt för Syriens olivtradition.
+          Varje skörd bär spår av jorden, solen och omsorgen
+          från generationer.
+        </p>
+
+        <blockquote data-t="quote">
+          “Äkta lyx handlar om ursprung, tid och omsorg.”
+        </blockquote>
+
       </div>
+
     </section>
 
-    <section class="process" id="craft">
+
+    <!-- ===================================================
+         CRAFT
+    ==================================================== -->
+    <section
+      class="process"
+      id="craft"
+    >
+
       <div class="heading reveal">
-        <i>02 / <span data-t="craft">Hantverket</span></i>
-        <h2 data-t="craftTitle">Fran jord till flaska</h2>
-        <p data-t="craftLead">En oforandrad tradition som moter modern precision.</p>
+
+        <i>
+          02 /
+          <span data-t="craft">
+            Hantverket
+          </span>
+        </i>
+
+        <h2 data-t="craftTitle">
+          Från jord till flaska
+        </h2>
+
+        <p data-t="craftLead">
+          En oförändrad tradition som möter modern precision.
+        </p>
+
       </div>
+
+
       <div class="cards">
-        <article class="reveal s1"><b>01</b><h3 data-t="step1">Handplockat</h3><p data-t="step1t">Oliverna skordas varsamt for hand for att skydda frukten och bevara dess naturliga karaktar.</p></article>
-        <article class="reveal s2"><b>02</b><h3 data-t="step2">Mekaniskt pressat</h3><p data-t="step2t">Kontrollerad temperatur och mekaniska metoder skapar en ren, tydlig och balanserad smak.</p></article>
-        <article class="reveal s3"><b>03</b><h3 data-t="step3">Varsamt buteljerat</h3><p data-t="step3t">Oljan far vila naturligt och buteljeras med omsorg for att skydda arom, farg och kvalitet.</p></article>
+
+        <!-- STEP 1 -->
+        <article class="reveal s1">
+
+          <b>01</b>
+
+          <h3 data-t="step1">
+            Handplockat
+          </h3>
+
+          <p data-t="step1t">
+            Oliverna skördas varsamt för hand för att skydda
+            frukten och bevara dess naturliga karaktär.
+          </p>
+
+        </article>
+
+
+        <!-- STEP 2 -->
+        <article class="reveal s2">
+
+          <b>02</b>
+
+          <h3 data-t="step2">
+            Mekaniskt pressat
+          </h3>
+
+          <p data-t="step2t">
+            Kontrollerad temperatur och mekaniska metoder
+            skapar en ren, tydlig och balanserad smak.
+          </p>
+
+        </article>
+
+
+        <!-- STEP 3 -->
+        <article class="reveal s3">
+
+          <b>03</b>
+
+          <h3 data-t="step3">
+            Varsamt buteljerat
+          </h3>
+
+          <p data-t="step3t">
+            Oljan får vila naturligt och buteljeras med omsorg
+            för att skydda arom, färg och kvalitet.
+          </p>
+
+        </article>
+
       </div>
+
     </section>
 
-    <section class="split bottle" id="oil">
-      <div class="photo reveal-left"><img src="assets/bottle.jpg" alt="Premium olive oil bottle" loading="lazy"></div>
+
+    <!-- ===================================================
+         OIL
+    ==================================================== -->
+    <section
+      class="split bottle"
+      id="oil"
+    >
+
+      <div class="photo reveal-left">
+
+        <img
+          src="assets/bottle.jpg"
+          alt="Premium olive oil bottle"
+          loading="lazy"
+        >
+
+      </div>
+
+
       <div class="copy reveal-right">
-        <i>03 / <span data-t="oil">Var olja</span></i>
-        <h2 data-t="oilTitle">Premium Extra Virgin</h2>
-        <p data-t="oilText">En balanserad signaturolja med gron friskhet, mjuk fruktighet och ett elegant pepprigt avslut.</p>
+
+        <i>
+          03 /
+          <span data-t="oil">
+            Vår olja
+          </span>
+        </i>
+
+        <h2 data-t="oilTitle">
+          Premium Extra Virgin
+        </h2>
+
+        <p data-t="oilText">
+          En balanserad signaturolja med grön friskhet,
+          mjuk fruktighet och ett elegant pepprigt avslut.
+        </p>
+
+
         <dl>
-          <div><dt data-t="taste">Smak</dt><dd data-t="tasteV">Grasig, fruktig och elegant pepprig.</dd></div>
-          <div><dt data-t="source">Ursprung</dt><dd data-t="sourceV">Syrisk olivtradition, skapad for den skandinaviska marknaden.</dd></div>
-          <div><dt data-t="serve">Passar till</dt><dd data-t="serveV">Brod, sallader, grillade ratter, marinader och servering.</dd></div>
+
+          <div>
+            <dt data-t="taste">
+              Smak
+            </dt>
+
+            <dd data-t="tasteV">
+              Gräsig, fruktig och elegant pepprig.
+            </dd>
+          </div>
+
+
+          <div>
+            <dt data-t="source">
+              Ursprung
+            </dt>
+
+            <dd data-t="sourceV">
+              Syrisk olivtradition, skapad för den
+              skandinaviska marknaden.
+            </dd>
+          </div>
+
+
+          <div>
+            <dt data-t="serve">
+              Passar till
+            </dt>
+
+            <dd data-t="serveV">
+              Bröd, sallader, grillade rätter, marinader
+              och servering.
+            </dd>
+          </div>
+
         </dl>
+
       </div>
+
     </section>
 
-    <section class="shop" id="shop">
+
+    <!-- ===================================================
+         SHOP
+    ==================================================== -->
+    <section
+      class="shop"
+      id="shop"
+    >
+
       <div class="heading reveal">
-        <i>04 / <span data-t="collection">Kollektion</span></i>
-        <h2 data-t="shopTitle">Fyra storlekar. Samma guld.</h2>
-        <p data-t="shopLead">Valj formatet som passar ditt bord, ditt kok eller din familj.</p>
+
+        <i>
+          04 /
+          <span data-t="collection">
+            Kollektion
+          </span>
+        </i>
+
+        <h2 data-t="shopTitle">
+          Fyra storlekar. Samma guld.
+        </h2>
+
+        <p data-t="shopLead">
+          Välj formatet som passar ditt bord,
+          ditt kök eller din familj.
+        </p>
+
       </div>
+
+
       <div class="products">
-        <article class="reveal s1"><div class="pack">750<small>ML</small></div><h3>750 ml</h3><a href="#contact" data-size="750 ml" data-t="price">Fraga om pris</a></article>
-        <article class="reveal s2 featured"><em data-t="popular">Mest popular</em><div class="pack tall">1<small>L</small></div><h3>1 L</h3><a href="#contact" data-size="1 L" data-t="price">Fraga om pris</a></article>
-        <article class="reveal s3"><div class="pack tin">2<small>L</small></div><h3>2 L</h3><a href="#contact" data-size="2 L" data-t="price">Fraga om pris</a></article>
-        <article class="reveal s4"><div class="pack tin big">3<small>L</small></div><h3>3 L</h3><a href="#contact" data-size="3 L" data-t="price">Fraga om pris</a></article>
+
+        <!-- 750 ML -->
+        <article class="reveal s1">
+
+          <div class="pack">
+            750
+            <small>ML</small>
+          </div>
+
+          <h3>
+            750 ml
+          </h3>
+
+          <a
+            href="#contact"
+            data-size="750 ml"
+            data-t="price"
+          >
+            Fråga om pris
+          </a>
+
+        </article>
+
+
+        <!-- 1 L -->
+        <article class="reveal s2 featured">
+
+          <em data-t="popular">
+            Mest populär
+          </em>
+
+          <div class="pack tall">
+            1
+            <small>L</small>
+          </div>
+
+          <h3>
+            1 L
+          </h3>
+
+          <a
+            href="#contact"
+            data-size="1 L"
+            data-t="price"
+          >
+            Fråga om pris
+          </a>
+
+        </article>
+
+
+        <!-- 2 L -->
+        <article class="reveal s3">
+
+          <div class="pack tin">
+            2
+            <small>L</small>
+          </div>
+
+          <h3>
+            2 L
+          </h3>
+
+          <a
+            href="#contact"
+            data-size="2 L"
+            data-t="price"
+          >
+            Fråga om pris
+          </a>
+
+        </article>
+
+
+        <!-- 3 L -->
+        <article class="reveal s4">
+
+          <div class="pack tin big">
+            3
+            <small>L</small>
+          </div>
+
+          <h3>
+            3 L
+          </h3>
+
+          <a
+            href="#contact"
+            data-size="3 L"
+            data-t="price"
+          >
+            Fråga om pris
+          </a>
+
+        </article>
+
       </div>
+
     </section>
 
-    <section class="contact" id="contact">
+
+    <!-- ===================================================
+         CONTACT
+    ==================================================== -->
+    <section
+      class="contact"
+      id="contact"
+    >
+
       <div class="reveal-left">
-        <i data-t="contact">Bestallning och kontakt</i>
-        <h2 data-t="contactTitle">Bli en del av historien</h2>
-        <p data-t="contactText">Skicka en forfragan om priser, produktlansering, aterforsaljning eller grossistmojligheter.</p>
+
+        <i data-t="contact">
+          Beställning och kontakt
+        </i>
+
+        <h2 data-t="contactTitle">
+          Bli en del av historien
+        </h2>
+
+        <p data-t="contactText">
+          Skicka en förfrågan om priser, produktlansering,
+          återförsäljning eller grossistmöjligheter.
+        </p>
+
       </div>
-      <form class="reveal-right" name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
-        <input type="hidden" name="form-name" value="order">
-        <p class="hidden"><label>Fyll inte i detta falt:<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <label><span data-t="name">Namn</span><input type="text" name="name" autocomplete="name" required></label>
-        <label><span data-t="email">E-post</span><input type="email" name="email" autocomplete="email" required></label>
+
+
+      <!-- CONTACT FORM -->
+      <form
+        class="reveal-right"
+        name="order"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/success.html"
+      >
+
+        <input
+          type="hidden"
+          name="form-name"
+          value="order"
+        >
+
+
+        <!-- HONEYPOT -->
+        <p class="hidden">
+
+          <label>
+            Fyll inte i detta fält:
+
+            <input
+              type="text"
+              name="bot-field"
+              tabindex="-1"
+              autocomplete="off"
+            >
+
+          </label>
+
+        </p>
+
+
+        <!-- NAME -->
         <label>
-          <span data-t="interest">Jag ar intresserad av</span>
-          <select id="size" name="product" required>
-            <option value="" data-t="selectSize" selected disabled>Valj storlek</option>
-            <option value="750 ml">750 ml</option>
-            <option value="1 L">1 L</option>
-            <option value="2 L">2 L</option>
-            <option value="3 L">3 L</option>
-          </select>
+
+          <span data-t="name">
+            Namn
+          </span>
+
+          <input
+            type="text"
+            name="name"
+            autocomplete="name"
+            required
+          >
+
         </label>
-        <label><span data-t="message">Meddelande</span><textarea name="message" rows="4" required></textarea></label>
-        <button type="submit" class="gold" data-t="send">Skicka forfragan</button>
+
+
+        <!-- EMAIL -->
+        <label>
+
+          <span data-t="email">
+            E-post
+          </span>
+
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            required
+          >
+
+        </label>
+
+
+        <!-- PRODUCT -->
+        <label>
+
+          <span data-t="interest">
+            Jag är intresserad av
+          </span>
+
+          <select
+            id="size"
+            name="product"
+            required
+          >
+
+            <option
+              value=""
+              data-t="selectSize"
+              selected
+              disabled
+            >
+              Välj storlek
+            </option>
+
+            <option value="750 ml">
+              750 ml
+            </option>
+
+            <option value="1 L">
+              1 L
+            </option>
+
+            <option value="2 L">
+              2 L
+            </option>
+
+            <option value="3 L">
+              3 L
+            </option>
+
+          </select>
+
+        </label>
+
+
+        <!-- MESSAGE -->
+        <label>
+
+          <span data-t="message">
+            Meddelande
+          </span>
+
+          <textarea
+            name="message"
+            rows="4"
+            required
+          ></textarea>
+
+        </label>
+
+
+        <!-- SUBMIT -->
+        <button
+          type="submit"
+          class="gold"
+          data-t="send"
+        >
+          Skicka förfrågan
+        </button>
+
       </form>
+
     </section>
+
   </main>
 
-<footer class="site-footer">
-  <div class="footer-content">
 
-    <div class="footer-brand">
-      <a class="logo" href="#top" aria-label="Syrian Gold">
-        SYRIAN GOLD
-        <small>OLIVOLI</small>
-      </a>
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
 
-    </div>
+    <div class="footer-content">
 
-    <div class="footer-contact">
 
-      <a
-        href="mailto:hej@syriangold.se"
-        class="footer-contact-link"
-      >
-        <span class="footer-symbol" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7H5Zm14 10V10l-7 5-7-5v7h14Z"/>
-          </svg>
-        </span>
-        <span>hej@syriangold.se</span>
-      </a>
+      <!-- FOOTER BRAND -->
+      <div class="footer-brand">
 
-      <a
-        href="https://wa.me/message/XPCDK5RYMEZIA1"
-        class="footer-contact-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="footer-symbol" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2a9.7 9.7 0 0 0-8.3 14.7L2.4 22l5.5-1.3A9.8 9.8 0 1 0 12 2Zm0 17.8a8 8 0 0 1-4-1.1l-.3-.2-3.3.8.9-3.2-.2-.4A8.1 8.1 0 1 1 12 19.8Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.2-.1-.4-.2-.6-.3Z"/>
-          </svg>
-        </span>
-        <span>WhatsApp</span>
-      </a>
+        <a
+          class="logo"
+          href="#top"
+          aria-label="Syrian Gold"
+        >
+          SYRIAN GOLD
+          <small>OLIVOLI</small>
+        </a>
 
-      <a
-        href="https://www.instagram.com/syrian.gold/"
-        class="footer-contact-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="footer-symbol" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.8 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Z"/>
-          </svg>
-        </span>
-        <span>@syrian.gold</span>
-      </a>
+      </div>
 
-      <div class="footer-contact-link footer-location">
-        <span class="footer-symbol" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2a7 7 0 0 0-7 7c0 5.1 7 13 7 13s7-7.9 7-13a7 7 0 0 0-7-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
-          </svg>
-        </span>
-        <span>Gothenburg, Sweden</span>
+
+      <!-- FOOTER CONTACT -->
+      <div class="footer-contact">
+
+
+    <!-- EMAIL -->
+<a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=baslan.ghazi@gmail.com"
+  class="footer-contact-link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="footer-symbol" aria-hidden="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7H5Zm14 10V10l-7 5-7-5v7h14Z"/>
+    </svg>
+  </span>
+
+  <span>baslan.ghazi@gmail.com</span>
+</a>
+
+
+        <!-- WHATSAPP -->
+        <a
+          href="https://wa.me/message/XPCDK5RYMEZIA1"
+          class="footer-contact-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span
+            class="footer-symbol"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 2a9.7 9.7 0 0 0-8.3 14.7L2.4 22l5.5-1.3A9.8 9.8 0 1 0 12 2Zm0 17.8a8 8 0 0 1-4-1.1l-.3-.2-3.3.8.9-3.2-.2-.4A8.1 8.1 0 1 1 12 19.8Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.2-.1-.4-.2-.6-.3Z"/>
+            </svg>
+
+          </span>
+
+          <span>
+            +46 72-22640 58
+          </span>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+        <a
+          href="https://www.instagram.com/syrian.gold/"
+          class="footer-contact-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span
+            class="footer-symbol"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.8 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Z"/>
+            </svg>
+
+          </span>
+
+          <span>
+            @syrian.gold
+          </span>
+
+        </a>
+
+
+        <!-- LOCATION -->
+        <div class="footer-contact-link footer-location">
+
+          <span
+            class="footer-symbol"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12 2a7 7 0 0 0-7 7c0 5.1 7 13 7 13s7-7.9 7-13a7 7 0 0 0-7-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+            </svg>
+
+          </span>
+
+          <span>
+            Gothenburg, Sweden
+          </span>
+
+        </div>
+
       </div>
 
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <small>© 2026 Syrian Gold · Olivoli</small>
 
-    <a href="#top" class="back-to-top">
-      TO top
-      <span aria-hidden="true">↑</span>
-    </a>
-  </div>
-</footer>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
 
-<script src="app.js"></script>
+      <small>
+        © 2026 Syrian Gold · Olivoli
+      </small>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       BACK TO TOP
+       ONLY ↑
+  ====================================================== -->
+
+  <a
+    href="#top"
+    class="back-to-top"
+    aria-label="Till toppen"
+  >
+    ↑
+  </a>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="app.js"></script>
+
 </body>
 </html>
